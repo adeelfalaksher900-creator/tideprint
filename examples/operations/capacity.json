@@ -1,0 +1,97 @@
+{
+  "schema": "tideprint/capacity-check/1",
+  "recordedAt": "2026-10-24T19:54:27.718Z",
+  "environment": {
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logicalCPUs": 9,
+    "memoryGiB": 10
+  },
+  "method": "3 warmups, then 20 measured operations per profile; p95 uses nearest-rank; milliseconds include local computation only.",
+  "profiles": [
+    {
+      "name": "Archived NOAA day",
+      "rows": 241,
+      "bytes": 6497,
+      "rawSHA256": "06a4a6c5a894f4933d62a0f92bd1bbe1b294e7e3cb7b9494d35a5be0d5746f81",
+      "flagged": 2,
+      "verifiedReceipts": 20,
+      "milliseconds": {
+        "analysis": {
+          "samples": 20,
+          "p50": 9.85,
+          "p95": 12.66,
+          "max": 15.35
+        },
+        "seal": {
+          "samples": 20,
+          "p50": 10.36,
+          "p95": 12.29,
+          "max": 13
+        },
+        "verify": {
+          "samples": 20,
+          "p50": 11.1,
+          "p95": 17.67,
+          "max": 19.08
+        }
+      }
+    },
+    {
+      "name": "Synthetic maximum-row file",
+      "rows": 3000,
+      "bytes": 93016,
+      "rawSHA256": "88f46f51bff6f7737b7793baff4e7a50fe13272a641e193cdf5aaf3826ae7396",
+      "flagged": 26,
+      "verifiedReceipts": 20,
+      "milliseconds": {
+        "analysis": {
+          "samples": 20,
+          "p50": 35.18,
+          "p95": 49.51,
+          "max": 54.1
+        },
+        "seal": {
+          "samples": 20,
+          "p50": 40.84,
+          "p95": 47.07,
+          "max": 52.35
+        },
+        "verify": {
+          "samples": 20,
+          "p50": 47.13,
+          "p95": 59.32,
+          "max": 70.16
+        }
+      }
+    }
+  ],
+  "concurrent": {
+    "workers": 5,
+    "rowsEach": 3000,
+    "allAuditsMatch": true,
+    "wallMilliseconds": 286.79,
+    "workerAnalysisMilliseconds": {
+      "samples": 5,
+      "p50": 113.89,
+      "p95": 131.02,
+      "max": 131.02
+    },
+    "includesWorkerStartupInWallTime": true
+  },
+  "workspaceRestore": {
+    "items": 30,
+    "rowsEach": 3000,
+    "bytes": 2895924,
+    "milliseconds": 1132.9,
+    "allRestored": true
+  },
+  "limits": [
+    "Synthetic maximum-row data are not field observations.",
+    "Node execution is not a browser-device latency guarantee.",
+    "Five local workers do not demonstrate organizational adoption or production web throughput.",
+    "No analyst task times, measured climate benefits or uptime SLA are inferred."
+  ]
+}

@@ -31,7 +31,7 @@ export function restoreDraft(input: string | Draft): Draft {
   if (new TextEncoder().encode(text).length > MAX_BUNDLE_BYTES) throw new Error('Draft backup is too large. Use a JSON file under 5 MiB.');
   let d: Draft; try { d = JSON.parse(text); } catch { throw new Error('This is not valid draft JSON.'); }
   if (!d || Object.keys(d).sort().join(',') !== 'config,decisions,id,name,rawCSV,source,updatedAt') throw new Error('This is not a supported Tideprint draft backup.');
-  validString(d.id, 'Draft ID', 100); validString(d.name, 'Review name', 120); validString(d.updatedAt, 'Draft date', 40);
+  validString(d.id, 'Draft ID', 100); validString(d.name, 'Review name', 120, true); validString(d.updatedAt, 'Draft date', 40);
   if (!Number.isFinite(Date.parse(d.updatedAt)) || typeof d.rawCSV !== 'string') throw new Error('The draft data or date is invalid.');
   validateSource(d.source); validateConfig(d.config);
   const audit = analyze(parseCSV(d.rawCSV), d.config);

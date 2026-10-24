@@ -9,7 +9,9 @@
     "test": "node --import tsx --test tests/*.test.ts tests/*.test.tsx",
     "check": "tsc --noEmit",
     "preview": "vite preview --host 0.0.0.0",
-    "evaluate": "node --import tsx scripts/evaluate.ts"
+    "evaluate": "node --import tsx scripts/evaluate.ts",
+    "benchmark": "node --import tsx scripts/benchmark.ts",
+    "reference-checks": "node --import tsx scripts/reference-checks.ts"
   },
   "dependencies": {
     "react": "19.3.1",

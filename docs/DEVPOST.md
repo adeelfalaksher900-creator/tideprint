@@ -47,7 +47,13 @@ The deployed app can fetch actual NOAA data, review flagged readings with reason
 
 The archived reference uses 241 real NOAA observations. A separate test fixture lists its deliberately injected spike, flat stretch and missing value. It is retained for regression testing and is not presented as observed measurements.
 
-The deployed source passes 49 automated tests, including React interaction tests for import errors, review decisions, sealing, complete draft recovery and tamper detection. Regression checks protect original UTF-8 file bytes and negative water-level values in CSV exports. Verification can compare the sender’s independently shared digest. A reproducible fault-injection evaluation detected all 21 expected cases across three real NOAA station-days; this is a mechanics check, not an independently labelled accuracy benchmark. The coastal design refresh and recovery hardening are deployed.
+The source passes 65 automated tests, including React interaction tests for import errors, review decisions, sealing, complete draft recovery, multi-tab storage conflicts, workspace restore, comparison disagreements and tamper detection. Regression checks protect original UTF-8 file bytes and negative water-level values in CSV exports. Verification can compare the sender’s independently shared digest.
+
+A reproducible fault-injection evaluation detected all 21 expected cases across three real NOAA station-days. Separate cross-implementation checks against IOOS ioos_qc 2.2.1 found zero differences across 2,226 range, missing-value and rate comparisons. These are mechanics and reference-implementation checks, not independently labelled sensor-error accuracy or an independent human study.
+
+A bounded Node-host capacity run measured analysis p95 49.51 ms and receipt verification p95 59.32 ms for a synthetic 3,000-row file, with 20 measured samples after warmup. Five concurrent local workers produced matching audits, and a 30-draft maximum-row workspace restored completely. This is computational evidence on the recorded host, not browser-device guarantees, organization-scale adoption or measured climate benefit.
+
+Compare reviews verifies two separately prepared receipts for matching data, source and settings, then exports agreement and disagreements. An optional observed-task measurement note records real timings, including slower or failed outcomes. A protocol is included for independent analysts; no completed human study is claimed. Complete workspace backups validate before restoring, while stale-tab protection stops autosave and exposes recovery exports. Public APIs now have a deployed regional IP rate-limit rule and successful NOAA responses use a short CDN cache.
 
 ## What we learned
 
@@ -55,7 +61,7 @@ A timestamp can support prior existence of bytes. It cannot establish that a sen
 
 ## What's next
 
-Evaluate the flags with independent labelled datasets and coastal analysts; add station-specific profiles and authenticated multi-person review; support more units, datums and sensors; provide full-node-backed proof verification and shared API rate limits. These are future work, not current capabilities.
+Evaluate the flags with independent labelled datasets and coastal analysts; add station-specific profiles and authenticated multi-person review; support more units, datums and sensors; provide full-node-backed proof verification and globally coordinated API quotas. These are future work, not current capabilities.
 
 ## Sources
 
