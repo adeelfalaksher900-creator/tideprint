@@ -1,0 +1,23 @@
+{
+  "station": "9414290",
+  "name": "San Francisco",
+  "date": "2024-10-01",
+  "unit": "m",
+  "datum": "MLLW",
+  "url": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=water_level&begin_date=20241001&range=24&datum=MLLW&station=9414290&time_zone=gmt&units=metric&format=json&application=Tideprint",
+  "retrievedAt": "2026-10-24T07:34:54.217367+00:00",
+  "practiceChanges": [
+    {
+      "row": 61,
+      "change": "Value changed to 4.8 m to create an isolated spike."
+    },
+    {
+      "rows": "121\u2013127",
+      "change": "Values changed to 1.100 m to create a 36-minute flat stretch."
+    },
+    {
+      "row": 181,
+      "change": "Value removed to create a missing reading."
+    }
+  ]
+}

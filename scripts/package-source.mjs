@@ -1,0 +1,13 @@
+// Reproducible dependency-free ZIP32 archive of the reviewable source tree.
+// Stored entries (no compression): portable, bounded and checked by standard unzip.
+import {readFileSync,readdirSync,writeFileSync,mkdirSync} from 'node:fs';
+import {join} from 'node:path';
+const root=process.cwd(),dirs=['src','api','server','tests','scripts','vendor','docs','examples','.github','public'];
+const top=['index.html','README.md','LICENSE','SECURITY.md','CONTRIBUTING.md','PRODUCT.md','DESIGN.md','package.json','package-lock.json','tsconfig.json','vite.config.ts','vercel.json','.gitignore','.npmrc','.env.example'];
+const files=[];const collect=p=>{for(const entry of readdirSync(join(root,p),{withFileTypes:true})){const rel=join(p,entry.name);if(entry.isDirectory())collect(rel);else if(entry.isFile()&&!rel.endsWith('.zip')&&!entry.name.startsWith('.env'))files.push(rel);}};
+for(const d of dirs)collect(d);for(const f of top)files.push(f);files.sort();
+const table=Array.from({length:256},(_,i)=>{let n=i;for(let j=0;j<8;j++)n=n&1?0xedb88320^(n>>>1):n>>>1;return n>>>0;});
+const crc=b=>{let n=0xffffffff;for(const x of b)n=table[(n^x)&255]^(n>>>8);return (n^0xffffffff)>>>0;};
+const chunks=[],central=[];let offset=0;
+for(const path of files){const data=readFileSync(join(root,path));if(data.length>1024*1024)throw new Error('Source entry exceeds package limit: '+path);const name=Buffer.from('tideprint/'+path.replaceAll('\\','/')),checksum=crc(data);const header=Buffer.alloc(30);header.writeUInt32LE(0x04034b50);header.writeUInt16LE(20,4);header.writeUInt16LE(0x800,6);header.writeUInt16LE(33,12);header.writeUInt32LE(checksum,14);header.writeUInt32LE(data.length,18);header.writeUInt32LE(data.length,22);header.writeUInt16LE(name.length,26);chunks.push(header,name,data);const c=Buffer.alloc(46);c.writeUInt32LE(0x02014b50);c.writeUInt16LE(20,4);c.writeUInt16LE(20,6);c.writeUInt16LE(0x800,8);c.writeUInt16LE(33,14);c.writeUInt32LE(checksum,16);c.writeUInt32LE(data.length,20);c.writeUInt32LE(data.length,24);c.writeUInt16LE(name.length,28);c.writeUInt32LE(offset,42);central.push(c,name);offset+=header.length+name.length+data.length;}
+const directory=Buffer.concat(central),end=Buffer.alloc(22);end.writeUInt32LE(0x06054b50);end.writeUInt16LE(files.length,8);end.writeUInt16LE(files.length,10);end.writeUInt32LE(directory.length,12);end.writeUInt32LE(offset,16);const zip=Buffer.concat([...chunks,directory,end]);if(zip.length>35000000)throw new Error('Source package exceeds the Devpost limit.');mkdirSync('public',{recursive:true});writeFileSync('public/tideprint-source.zip',zip);console.log(`Source review package: ${files.length} files, ${(zip.length/1024).toFixed(0)} KiB.`);

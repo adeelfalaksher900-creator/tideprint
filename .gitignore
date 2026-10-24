@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.vercel/
+.netlify/
+.env
+.env.*
+!.env.example
+coverage/
+*.log
+.DS_Store
+
+public/tideprint-source.zip

@@ -1,0 +1,16 @@
+export const ALGORITHM = 'tideprint-qa/1.0.0';
+export type Source = { kind: 'csv' | 'noaa' | 'practice'; name: string; datum: string; unit: 'm'; url?: string; station?: string; date?: string; retrievedAt?: string; note?: string };
+export type Reading = { id: string; line: number; time: string; ms: number; value: number | null };
+export type Config = { min: number; max: number; spike: number; rate: number; flatMinutes: number; flatTolerance: number; intervalMinutes: number; modelThreshold: number };
+export const DEFAULT_CONFIG: Config = { min: -5, max: 8, spike: 0.8, rate: 3, flatMinutes: 30, flatTolerance: .001, intervalMinutes: 6, modelThreshold: .68 };
+export type FlagCode = 'missing' | 'duplicate' | 'order' | 'gap' | 'range' | 'spike' | 'rate' | 'flat' | 'model';
+export type Flag = { code: FlagCode; label: string; detail: string };
+export type RowAudit = { rowId: string; flags: Flag[]; score: number | null };
+export type Audit = { algorithm: string; rows: RowAudit[]; model: { name: string; trees: number; sampleSize: number; seed: number; available: boolean }; summary: { readings: number; flagged: number; flags: number } };
+export type Decision = { rowId: string; action: 'keep' | 'exclude'; reason: string };
+export type Draft = { id: string; name: string; rawCSV: string; source: Source; config: Config; decisions: Decision[]; updatedAt: string };
+export type Manifest = { schema: 'tideprint/receipt/1'; name: string; createdAt: string; reviewer: string; source: Source; rawHash: string; config: Config; audit: Audit; decisions: Decision[] };
+export type Bundle = { schema: 'tideprint/bundle/1'; manifest: Manifest; digest: string; rawCSV: string; proof?: string };
+export const MAX_CSV_BYTES = 1024 * 1024;
+export const MAX_ROWS = 3000;
+export const MAX_BUNDLE_BYTES = 5 * 1024 * 1024;

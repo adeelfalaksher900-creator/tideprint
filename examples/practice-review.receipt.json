@@ -1,0 +1,1349 @@
+{
+  "schema": "tideprint/bundle/1",
+  "manifest": {
+    "schema": "tideprint/receipt/1",
+    "name": "Release QA · practice review · 24 Oct 2026",
+    "createdAt": "2026-10-24T10:14:32.113Z",
+    "reviewer": "Automated release QA",
+    "source": {
+      "kind": "practice",
+      "name": "San Francisco · practice copy",
+      "station": "9414290",
+      "date": "2024-10-01",
+      "unit": "m",
+      "datum": "MLLW",
+      "url": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=water_level&begin_date=20241001&range=24&datum=MLLW&station=9414290&time_zone=gmt&units=metric&format=json&application=Tideprint",
+      "retrievedAt": "2026-10-24T07:34:54.217367+00:00",
+      "note": "Deliberately changed NOAA copy: row 61 set to 4.8 m; rows 121–127 set to 1.100 m; row 181 made blank. These edits are for practice, not observed measurements."
+    },
+    "rawHash": "9a13577d2c2023048253ca877ec5f7792e3d8a3f9bc22317fd12de53e982184c",
+    "config": {
+      "min": -5,
+      "max": 8,
+      "spike": 0.8,
+      "rate": 3,
+      "flatMinutes": 30,
+      "flatTolerance": 0.001,
+      "intervalMinutes": 6,
+      "modelThreshold": 0.68
+    },
+    "audit": {
+      "algorithm": "tideprint-qa/1.0.0",
+      "rows": [
+        {
+          "rowId": "r1",
+          "flags": [],
+          "score": 0.557465
+        },
+        {
+          "rowId": "r2",
+          "flags": [],
+          "score": 0.542523
+        },
+        {
+          "rowId": "r3",
+          "flags": [],
+          "score": 0.525679
+        },
+        {
+          "rowId": "r4",
+          "flags": [],
+          "score": 0.404738
+        },
+        {
+          "rowId": "r5",
+          "flags": [],
+          "score": 0.488921
+        },
+        {
+          "rowId": "r6",
+          "flags": [],
+          "score": 0.454546
+        },
+        {
+          "rowId": "r7",
+          "flags": [],
+          "score": 0.41513
+        },
+        {
+          "rowId": "r8",
+          "flags": [],
+          "score": 0.435477
+        },
+        {
+          "rowId": "r9",
+          "flags": [],
+          "score": 0.426477
+        },
+        {
+          "rowId": "r10",
+          "flags": [],
+          "score": 0.426477
+        },
+        {
+          "rowId": "r11",
+          "flags": [],
+          "score": 0.413817
+        },
+        {
+          "rowId": "r12",
+          "flags": [],
+          "score": 0.396856
+        },
+        {
+          "rowId": "r13",
+          "flags": [],
+          "score": 0.392121
+        },
+        {
+          "rowId": "r14",
+          "flags": [],
+          "score": 0.413608
+        },
+        {
+          "rowId": "r15",
+          "flags": [],
+          "score": 0.449327
+        },
+        {
+          "rowId": "r16",
+          "flags": [],
+          "score": 0.382057
+        },
+        {
+          "rowId": "r17",
+          "flags": [],
+          "score": 0.385169
+        },
+        {
+          "rowId": "r18",
+          "flags": [],
+          "score": 0.394246
+        },
+        {
+          "rowId": "r19",
+          "flags": [],
+          "score": 0.381432
+        },
+        {
+          "rowId": "r20",
+          "flags": [],
+          "score": 0.380586
+        },
+        {
+          "rowId": "r21",
+          "flags": [],
+          "score": 0.389988
+        },
+        {
+          "rowId": "r22",
+          "flags": [],
+          "score": 0.38447
+        },
+        {
+          "rowId": "r23",
+          "flags": [],
+          "score": 0.419498
+        },
+        {
+          "rowId": "r24",
+          "flags": [],
+          "score": 0.385591
+        },
+        {
+          "rowId": "r25",
+          "flags": [],
+          "score": 0.385967
+        },
+        {
+          "rowId": "r26",
+          "flags": [],
+          "score": 0.3929
+        },
+        {
+          "rowId": "r27",
+          "flags": [],
+          "score": 0.378306
+        },
+        {
+          "rowId": "r28",
+          "flags": [],
+          "score": 0.378297
+        },
+        {
+          "rowId": "r29",
+          "flags": [],
+          "score": 0.382697
+        },
+        {
+          "rowId": "r30",
+          "flags": [],
+          "score": 0.384472
+        },
+        {
+          "rowId": "r31",
+          "flags": [],
+          "score": 0.387041
+        },
+        {
+          "rowId": "r32",
+          "flags": [],
+          "score": 0.385426
+        },
+        {
+          "rowId": "r33",
+          "flags": [],
+          "score": 0.380616
+        },
+        {
+          "rowId": "r34",
+          "flags": [],
+          "score": 0.420803
+        },
+        {
+          "rowId": "r35",
+          "flags": [],
+          "score": 0.382934
+        },
+        {
+          "rowId": "r36",
+          "flags": [],
+          "score": 0.377059
+        },
+        {
+          "rowId": "r37",
+          "flags": [],
+          "score": 0.381989
+        },
+        {
+          "rowId": "r38",
+          "flags": [],
+          "score": 0.377984
+        },
+        {
+          "rowId": "r39",
+          "flags": [],
+          "score": 0.383652
+        },
+        {
+          "rowId": "r40",
+          "flags": [],
+          "score": 0.3866
+        },
+        {
+          "rowId": "r41",
+          "flags": [],
+          "score": 0.386048
+        },
+        {
+          "rowId": "r42",
+          "flags": [],
+          "score": 0.384323
+        },
+        {
+          "rowId": "r43",
+          "flags": [],
+          "score": 0.389524
+        },
+        {
+          "rowId": "r44",
+          "flags": [],
+          "score": 0.382273
+        },
+        {
+          "rowId": "r45",
+          "flags": [],
+          "score": 0.386513
+        },
+        {
+          "rowId": "r46",
+          "flags": [],
+          "score": 0.388428
+        },
+        {
+          "rowId": "r47",
+          "flags": [],
+          "score": 0.386063
+        },
+        {
+          "rowId": "r48",
+          "flags": [],
+          "score": 0.390156
+        },
+        {
+          "rowId": "r49",
+          "flags": [],
+          "score": 0.392751
+        },
+        {
+          "rowId": "r50",
+          "flags": [],
+          "score": 0.392293
+        },
+        {
+          "rowId": "r51",
+          "flags": [],
+          "score": 0.407095
+        },
+        {
+          "rowId": "r52",
+          "flags": [],
+          "score": 0.394986
+        },
+        {
+          "rowId": "r53",
+          "flags": [],
+          "score": 0.38813
+        },
+        {
+          "rowId": "r54",
+          "flags": [],
+          "score": 0.410645
+        },
+        {
+          "rowId": "r55",
+          "flags": [],
+          "score": 0.388641
+        },
+        {
+          "rowId": "r56",
+          "flags": [],
+          "score": 0.426603
+        },
+        {
+          "rowId": "r57",
+          "flags": [],
+          "score": 0.405182
+        },
+        {
+          "rowId": "r58",
+          "flags": [],
+          "score": 0.397304
+        },
+        {
+          "rowId": "r59",
+          "flags": [],
+          "score": 0.405472
+        },
+        {
+          "rowId": "r60",
+          "flags": [],
+          "score": 0.418125
+        },
+        {
+          "rowId": "r61",
+          "flags": [
+            {
+              "code": "rate",
+              "label": "Fast change",
+              "detail": "31.02 m/hour; review threshold 3."
+            },
+            {
+              "code": "spike",
+              "label": "Isolated spike",
+              "detail": "Differs from the mean of its neighbours by 3.098 m."
+            },
+            {
+              "code": "model",
+              "label": "Unusual pattern",
+              "detail": "Isolation Forest score 0.868 meets the review threshold 0.68. This is a relative anomaly score, not a probability of error."
+            }
+          ],
+          "score": 0.867884
+        },
+        {
+          "rowId": "r62",
+          "flags": [
+            {
+              "code": "rate",
+              "label": "Fast change",
+              "detail": "30.94 m/hour; review threshold 3."
+            },
+            {
+              "code": "model",
+              "label": "Unusual pattern",
+              "detail": "Isolation Forest score 0.830 meets the review threshold 0.68. This is a relative anomaly score, not a probability of error."
+            }
+          ],
+          "score": 0.829532
+        },
+        {
+          "rowId": "r63",
+          "flags": [],
+          "score": 0.505849
+        },
+        {
+          "rowId": "r64",
+          "flags": [],
+          "score": 0.419148
+        },
+        {
+          "rowId": "r65",
+          "flags": [],
+          "score": 0.442562
+        },
+        {
+          "rowId": "r66",
+          "flags": [],
+          "score": 0.485475
+        },
+        {
+          "rowId": "r67",
+          "flags": [],
+          "score": 0.469937
+        },
+        {
+          "rowId": "r68",
+          "flags": [],
+          "score": 0.405472
+        },
+        {
+          "rowId": "r69",
+          "flags": [],
+          "score": 0.409247
+        },
+        {
+          "rowId": "r70",
+          "flags": [],
+          "score": 0.405786
+        },
+        {
+          "rowId": "r71",
+          "flags": [],
+          "score": 0.405869
+        },
+        {
+          "rowId": "r72",
+          "flags": [],
+          "score": 0.407762
+        },
+        {
+          "rowId": "r73",
+          "flags": [],
+          "score": 0.421764
+        },
+        {
+          "rowId": "r74",
+          "flags": [],
+          "score": 0.408017
+        },
+        {
+          "rowId": "r75",
+          "flags": [],
+          "score": 0.415285
+        },
+        {
+          "rowId": "r76",
+          "flags": [],
+          "score": 0.403831
+        },
+        {
+          "rowId": "r77",
+          "flags": [],
+          "score": 0.394734
+        },
+        {
+          "rowId": "r78",
+          "flags": [],
+          "score": 0.382716
+        },
+        {
+          "rowId": "r79",
+          "flags": [],
+          "score": 0.384911
+        },
+        {
+          "rowId": "r80",
+          "flags": [],
+          "score": 0.404749
+        },
+        {
+          "rowId": "r81",
+          "flags": [],
+          "score": 0.414336
+        },
+        {
+          "rowId": "r82",
+          "flags": [],
+          "score": 0.438919
+        },
+        {
+          "rowId": "r83",
+          "flags": [],
+          "score": 0.450861
+        },
+        {
+          "rowId": "r84",
+          "flags": [],
+          "score": 0.471244
+        },
+        {
+          "rowId": "r85",
+          "flags": [],
+          "score": 0.381074
+        },
+        {
+          "rowId": "r86",
+          "flags": [],
+          "score": 0.387779
+        },
+        {
+          "rowId": "r87",
+          "flags": [],
+          "score": 0.428733
+        },
+        {
+          "rowId": "r88",
+          "flags": [],
+          "score": 0.415044
+        },
+        {
+          "rowId": "r89",
+          "flags": [],
+          "score": 0.417467
+        },
+        {
+          "rowId": "r90",
+          "flags": [],
+          "score": 0.448257
+        },
+        {
+          "rowId": "r91",
+          "flags": [],
+          "score": 0.423626
+        },
+        {
+          "rowId": "r92",
+          "flags": [],
+          "score": 0.48604
+        },
+        {
+          "rowId": "r93",
+          "flags": [],
+          "score": 0.53572
+        },
+        {
+          "rowId": "r94",
+          "flags": [],
+          "score": 0.52813
+        },
+        {
+          "rowId": "r95",
+          "flags": [],
+          "score": 0.429723
+        },
+        {
+          "rowId": "r96",
+          "flags": [],
+          "score": 0.386439
+        },
+        {
+          "rowId": "r97",
+          "flags": [],
+          "score": 0.386763
+        },
+        {
+          "rowId": "r98",
+          "flags": [],
+          "score": 0.385037
+        },
+        {
+          "rowId": "r99",
+          "flags": [],
+          "score": 0.446224
+        },
+        {
+          "rowId": "r100",
+          "flags": [],
+          "score": 0.515326
+        },
+        {
+          "rowId": "r101",
+          "flags": [],
+          "score": 0.470595
+        },
+        {
+          "rowId": "r102",
+          "flags": [],
+          "score": 0.439935
+        },
+        {
+          "rowId": "r103",
+          "flags": [],
+          "score": 0.384579
+        },
+        {
+          "rowId": "r104",
+          "flags": [],
+          "score": 0.399772
+        },
+        {
+          "rowId": "r105",
+          "flags": [],
+          "score": 0.395415
+        },
+        {
+          "rowId": "r106",
+          "flags": [],
+          "score": 0.389778
+        },
+        {
+          "rowId": "r107",
+          "flags": [],
+          "score": 0.397357
+        },
+        {
+          "rowId": "r108",
+          "flags": [],
+          "score": 0.397393
+        },
+        {
+          "rowId": "r109",
+          "flags": [],
+          "score": 0.410705
+        },
+        {
+          "rowId": "r110",
+          "flags": [],
+          "score": 0.42382
+        },
+        {
+          "rowId": "r111",
+          "flags": [],
+          "score": 0.409106
+        },
+        {
+          "rowId": "r112",
+          "flags": [],
+          "score": 0.412985
+        },
+        {
+          "rowId": "r113",
+          "flags": [],
+          "score": 0.456633
+        },
+        {
+          "rowId": "r114",
+          "flags": [],
+          "score": 0.430109
+        },
+        {
+          "rowId": "r115",
+          "flags": [],
+          "score": 0.433821
+        },
+        {
+          "rowId": "r116",
+          "flags": [],
+          "score": 0.488426
+        },
+        {
+          "rowId": "r117",
+          "flags": [],
+          "score": 0.508134
+        },
+        {
+          "rowId": "r118",
+          "flags": [],
+          "score": 0.518594
+        },
+        {
+          "rowId": "r119",
+          "flags": [],
+          "score": 0.518337
+        },
+        {
+          "rowId": "r120",
+          "flags": [],
+          "score": 0.547766
+        },
+        {
+          "rowId": "r121",
+          "flags": [
+            {
+              "code": "rate",
+              "label": "Fast change",
+              "detail": "7.93 m/hour; review threshold 3."
+            },
+            {
+              "code": "model",
+              "label": "Unusual pattern",
+              "detail": "Isolation Forest score 0.741 meets the review threshold 0.68. This is a relative anomaly score, not a probability of error."
+            }
+          ],
+          "score": 0.741037
+        },
+        {
+          "rowId": "r122",
+          "flags": [],
+          "score": 0.490896
+        },
+        {
+          "rowId": "r123",
+          "flags": [],
+          "score": 0.490896
+        },
+        {
+          "rowId": "r124",
+          "flags": [],
+          "score": 0.490896
+        },
+        {
+          "rowId": "r125",
+          "flags": [],
+          "score": 0.490896
+        },
+        {
+          "rowId": "r126",
+          "flags": [],
+          "score": 0.490896
+        },
+        {
+          "rowId": "r127",
+          "flags": [
+            {
+              "code": "flat",
+              "label": "Long flat stretch",
+              "detail": "7 readings changed by no more than 0.001 m over 36 minutes, starting at row 121."
+            }
+          ],
+          "score": 0.490896
+        },
+        {
+          "rowId": "r128",
+          "flags": [
+            {
+              "code": "rate",
+              "label": "Fast change",
+              "detail": "7.74 m/hour; review threshold 3."
+            },
+            {
+              "code": "model",
+              "label": "Unusual pattern",
+              "detail": "Isolation Forest score 0.795 meets the review threshold 0.68. This is a relative anomaly score, not a probability of error."
+            }
+          ],
+          "score": 0.794814
+        },
+        {
+          "rowId": "r129",
+          "flags": [],
+          "score": 0.646775
+        },
+        {
+          "rowId": "r130",
+          "flags": [],
+          "score": 0.600644
+        },
+        {
+          "rowId": "r131",
+          "flags": [],
+          "score": 0.49618
+        },
+        {
+          "rowId": "r132",
+          "flags": [],
+          "score": 0.446157
+        },
+        {
+          "rowId": "r133",
+          "flags": [],
+          "score": 0.433728
+        },
+        {
+          "rowId": "r134",
+          "flags": [],
+          "score": 0.418328
+        },
+        {
+          "rowId": "r135",
+          "flags": [],
+          "score": 0.446438
+        },
+        {
+          "rowId": "r136",
+          "flags": [],
+          "score": 0.415105
+        },
+        {
+          "rowId": "r137",
+          "flags": [],
+          "score": 0.401699
+        },
+        {
+          "rowId": "r138",
+          "flags": [],
+          "score": 0.399805
+        },
+        {
+          "rowId": "r139",
+          "flags": [],
+          "score": 0.416516
+        },
+        {
+          "rowId": "r140",
+          "flags": [],
+          "score": 0.425504
+        },
+        {
+          "rowId": "r141",
+          "flags": [],
+          "score": 0.403493
+        },
+        {
+          "rowId": "r142",
+          "flags": [],
+          "score": 0.411673
+        },
+        {
+          "rowId": "r143",
+          "flags": [],
+          "score": 0.388081
+        },
+        {
+          "rowId": "r144",
+          "flags": [],
+          "score": 0.397731
+        },
+        {
+          "rowId": "r145",
+          "flags": [],
+          "score": 0.396074
+        },
+        {
+          "rowId": "r146",
+          "flags": [],
+          "score": 0.383254
+        },
+        {
+          "rowId": "r147",
+          "flags": [],
+          "score": 0.386651
+        },
+        {
+          "rowId": "r148",
+          "flags": [],
+          "score": 0.429391
+        },
+        {
+          "rowId": "r149",
+          "flags": [],
+          "score": 0.460239
+        },
+        {
+          "rowId": "r150",
+          "flags": [],
+          "score": 0.401487
+        },
+        {
+          "rowId": "r151",
+          "flags": [],
+          "score": 0.385711
+        },
+        {
+          "rowId": "r152",
+          "flags": [],
+          "score": 0.398665
+        },
+        {
+          "rowId": "r153",
+          "flags": [],
+          "score": 0.383001
+        },
+        {
+          "rowId": "r154",
+          "flags": [],
+          "score": 0.38391
+        },
+        {
+          "rowId": "r155",
+          "flags": [],
+          "score": 0.380544
+        },
+        {
+          "rowId": "r156",
+          "flags": [],
+          "score": 0.385094
+        },
+        {
+          "rowId": "r157",
+          "flags": [],
+          "score": 0.380056
+        },
+        {
+          "rowId": "r158",
+          "flags": [],
+          "score": 0.380606
+        },
+        {
+          "rowId": "r159",
+          "flags": [],
+          "score": 0.417456
+        },
+        {
+          "rowId": "r160",
+          "flags": [],
+          "score": 0.382696
+        },
+        {
+          "rowId": "r161",
+          "flags": [],
+          "score": 0.382904
+        },
+        {
+          "rowId": "r162",
+          "flags": [],
+          "score": 0.421644
+        },
+        {
+          "rowId": "r163",
+          "flags": [],
+          "score": 0.42351
+        },
+        {
+          "rowId": "r164",
+          "flags": [],
+          "score": 0.396026
+        },
+        {
+          "rowId": "r165",
+          "flags": [],
+          "score": 0.383974
+        },
+        {
+          "rowId": "r166",
+          "flags": [],
+          "score": 0.386463
+        },
+        {
+          "rowId": "r167",
+          "flags": [],
+          "score": 0.387025
+        },
+        {
+          "rowId": "r168",
+          "flags": [],
+          "score": 0.388312
+        },
+        {
+          "rowId": "r169",
+          "flags": [],
+          "score": 0.382061
+        },
+        {
+          "rowId": "r170",
+          "flags": [],
+          "score": 0.414188
+        },
+        {
+          "rowId": "r171",
+          "flags": [],
+          "score": 0.406197
+        },
+        {
+          "rowId": "r172",
+          "flags": [],
+          "score": 0.386668
+        },
+        {
+          "rowId": "r173",
+          "flags": [],
+          "score": 0.380691
+        },
+        {
+          "rowId": "r174",
+          "flags": [],
+          "score": 0.379286
+        },
+        {
+          "rowId": "r175",
+          "flags": [],
+          "score": 0.390156
+        },
+        {
+          "rowId": "r176",
+          "flags": [],
+          "score": 0.393637
+        },
+        {
+          "rowId": "r177",
+          "flags": [],
+          "score": 0.540798
+        },
+        {
+          "rowId": "r178",
+          "flags": [],
+          "score": 0.546526
+        },
+        {
+          "rowId": "r179",
+          "flags": [],
+          "score": 0.491463
+        },
+        {
+          "rowId": "r180",
+          "flags": [],
+          "score": 0.53147
+        },
+        {
+          "rowId": "r181",
+          "flags": [
+            {
+              "code": "missing",
+              "label": "Missing value",
+              "detail": "This row has a time but no water-level value."
+            }
+          ],
+          "score": null
+        },
+        {
+          "rowId": "r182",
+          "flags": [],
+          "score": 0.566689
+        },
+        {
+          "rowId": "r183",
+          "flags": [],
+          "score": 0.443514
+        },
+        {
+          "rowId": "r184",
+          "flags": [],
+          "score": 0.501048
+        },
+        {
+          "rowId": "r185",
+          "flags": [],
+          "score": 0.454377
+        },
+        {
+          "rowId": "r186",
+          "flags": [],
+          "score": 0.510373
+        },
+        {
+          "rowId": "r187",
+          "flags": [],
+          "score": 0.414163
+        },
+        {
+          "rowId": "r188",
+          "flags": [],
+          "score": 0.414315
+        },
+        {
+          "rowId": "r189",
+          "flags": [],
+          "score": 0.447612
+        },
+        {
+          "rowId": "r190",
+          "flags": [],
+          "score": 0.48036
+        },
+        {
+          "rowId": "r191",
+          "flags": [],
+          "score": 0.527191
+        },
+        {
+          "rowId": "r192",
+          "flags": [],
+          "score": 0.567005
+        },
+        {
+          "rowId": "r193",
+          "flags": [],
+          "score": 0.4714
+        },
+        {
+          "rowId": "r194",
+          "flags": [],
+          "score": 0.412645
+        },
+        {
+          "rowId": "r195",
+          "flags": [],
+          "score": 0.405555
+        },
+        {
+          "rowId": "r196",
+          "flags": [],
+          "score": 0.420464
+        },
+        {
+          "rowId": "r197",
+          "flags": [],
+          "score": 0.388679
+        },
+        {
+          "rowId": "r198",
+          "flags": [],
+          "score": 0.389557
+        },
+        {
+          "rowId": "r199",
+          "flags": [],
+          "score": 0.392569
+        },
+        {
+          "rowId": "r200",
+          "flags": [],
+          "score": 0.404656
+        },
+        {
+          "rowId": "r201",
+          "flags": [],
+          "score": 0.387819
+        },
+        {
+          "rowId": "r202",
+          "flags": [],
+          "score": 0.40825
+        },
+        {
+          "rowId": "r203",
+          "flags": [],
+          "score": 0.39034
+        },
+        {
+          "rowId": "r204",
+          "flags": [],
+          "score": 0.421561
+        },
+        {
+          "rowId": "r205",
+          "flags": [],
+          "score": 0.435161
+        },
+        {
+          "rowId": "r206",
+          "flags": [],
+          "score": 0.474076
+        },
+        {
+          "rowId": "r207",
+          "flags": [],
+          "score": 0.409001
+        },
+        {
+          "rowId": "r208",
+          "flags": [],
+          "score": 0.440801
+        },
+        {
+          "rowId": "r209",
+          "flags": [],
+          "score": 0.389595
+        },
+        {
+          "rowId": "r210",
+          "flags": [],
+          "score": 0.384073
+        },
+        {
+          "rowId": "r211",
+          "flags": [],
+          "score": 0.382584
+        },
+        {
+          "rowId": "r212",
+          "flags": [],
+          "score": 0.377872
+        },
+        {
+          "rowId": "r213",
+          "flags": [],
+          "score": 0.380013
+        },
+        {
+          "rowId": "r214",
+          "flags": [],
+          "score": 0.44663
+        },
+        {
+          "rowId": "r215",
+          "flags": [],
+          "score": 0.45976
+        },
+        {
+          "rowId": "r216",
+          "flags": [],
+          "score": 0.4553
+        },
+        {
+          "rowId": "r217",
+          "flags": [],
+          "score": 0.456278
+        },
+        {
+          "rowId": "r218",
+          "flags": [],
+          "score": 0.431513
+        },
+        {
+          "rowId": "r219",
+          "flags": [],
+          "score": 0.389453
+        },
+        {
+          "rowId": "r220",
+          "flags": [],
+          "score": 0.436601
+        },
+        {
+          "rowId": "r221",
+          "flags": [],
+          "score": 0.432247
+        },
+        {
+          "rowId": "r222",
+          "flags": [],
+          "score": 0.423307
+        },
+        {
+          "rowId": "r223",
+          "flags": [],
+          "score": 0.391781
+        },
+        {
+          "rowId": "r224",
+          "flags": [],
+          "score": 0.3859
+        },
+        {
+          "rowId": "r225",
+          "flags": [],
+          "score": 0.385161
+        },
+        {
+          "rowId": "r226",
+          "flags": [],
+          "score": 0.39046
+        },
+        {
+          "rowId": "r227",
+          "flags": [],
+          "score": 0.44688
+        },
+        {
+          "rowId": "r228",
+          "flags": [],
+          "score": 0.439056
+        },
+        {
+          "rowId": "r229",
+          "flags": [],
+          "score": 0.398697
+        },
+        {
+          "rowId": "r230",
+          "flags": [],
+          "score": 0.393729
+        },
+        {
+          "rowId": "r231",
+          "flags": [],
+          "score": 0.390468
+        },
+        {
+          "rowId": "r232",
+          "flags": [],
+          "score": 0.400022
+        },
+        {
+          "rowId": "r233",
+          "flags": [],
+          "score": 0.386551
+        },
+        {
+          "rowId": "r234",
+          "flags": [],
+          "score": 0.39636
+        },
+        {
+          "rowId": "r235",
+          "flags": [],
+          "score": 0.41513
+        },
+        {
+          "rowId": "r236",
+          "flags": [],
+          "score": 0.392183
+        },
+        {
+          "rowId": "r237",
+          "flags": [],
+          "score": 0.411511
+        },
+        {
+          "rowId": "r238",
+          "flags": [],
+          "score": 0.465756
+        },
+        {
+          "rowId": "r239",
+          "flags": [],
+          "score": 0.519743
+        },
+        {
+          "rowId": "r240",
+          "flags": [],
+          "score": 0.590959
+        },
+        {
+          "rowId": "r241",
+          "flags": [],
+          "score": 0.608681
+        }
+      ],
+      "model": {
+        "name": "Isolation Forest",
+        "trees": 64,
+        "sampleSize": 128,
+        "seed": 73129,
+        "available": true
+      },
+      "summary": {
+        "readings": 241,
+        "flagged": 6,
+        "flags": 11
+      }
+    },
+    "decisions": [
+      {
+        "rowId": "r61",
+        "action": "keep",
+        "reason": "Automated release QA using the explicitly changed practice copy. Keep the flagged values to test preservation and receipt integrity; this is not a field review."
+      },
+      {
+        "rowId": "r62",
+        "action": "keep",
+        "reason": "Automated release QA using the explicitly changed practice copy. Keep the flagged values to test preservation and receipt integrity; this is not a field review."
+      },
+      {
+        "rowId": "r121",
+        "action": "keep",
+        "reason": "Automated release QA using the explicitly changed practice copy. Keep the flagged values to test preservation and receipt integrity; this is not a field review."
+      },
+      {
+        "rowId": "r127",
+        "action": "keep",
+        "reason": "Automated release QA using the explicitly changed practice copy. Keep the flagged values to test preservation and receipt integrity; this is not a field review."
+      },
+      {
+        "rowId": "r128",
+        "action": "keep",
+        "reason": "Automated release QA using the explicitly changed practice copy. Keep the flagged values to test preservation and receipt integrity; this is not a field review."
+      },
+      {
+        "rowId": "r181",
+        "action": "keep",
+        "reason": "Automated release QA using the explicitly changed practice copy. Keep the flagged values to test preservation and receipt integrity; this is not a field review."
+      }
+    ]
+  },
+  "digest": "458fb44288700a1ef4c19c3a8612db6a3948080b3525f9593e5ad545a7136723",
+  "rawCSV": "timestamp,value\n2024-10-01T00:00:00Z,0.519\n2024-10-01T00:06:00Z,0.522\n2024-10-01T00:12:00Z,0.528\n2024-10-01T00:18:00Z,0.542\n2024-10-01T00:24:00Z,0.543\n2024-10-01T00:30:00Z,0.546\n2024-10-01T00:36:00Z,0.556\n2024-10-01T00:42:00Z,0.561\n2024-10-01T00:48:00Z,0.567\n2024-10-01T00:54:00Z,0.573\n2024-10-01T01:00:00Z,0.583\n2024-10-01T01:06:00Z,0.598\n2024-10-01T01:12:00Z,0.618\n2024-10-01T01:18:00Z,0.63\n2024-10-01T01:24:00Z,0.668\n2024-10-01T01:30:00Z,0.692\n2024-10-01T01:36:00Z,0.719\n2024-10-01T01:42:00Z,0.75\n2024-10-01T01:48:00Z,0.777\n2024-10-01T01:54:00Z,0.8\n2024-10-01T02:00:00Z,0.818\n2024-10-01T02:06:00Z,0.848\n2024-10-01T02:12:00Z,0.882\n2024-10-01T02:18:00Z,0.907\n2024-10-01T02:24:00Z,0.928\n2024-10-01T02:30:00Z,0.96\n2024-10-01T02:36:00Z,0.989\n2024-10-01T02:42:00Z,1.015\n2024-10-01T02:48:00Z,1.04\n2024-10-01T02:54:00Z,1.065\n2024-10-01T03:00:00Z,1.083\n2024-10-01T03:06:00Z,1.103\n2024-10-01T03:12:00Z,1.132\n2024-10-01T03:18:00Z,1.171\n2024-10-01T03:24:00Z,1.2\n2024-10-01T03:30:00Z,1.226\n2024-10-01T03:36:00Z,1.254\n2024-10-01T03:42:00Z,1.28\n2024-10-01T03:48:00Z,1.309\n2024-10-01T03:54:00Z,1.339\n2024-10-01T04:00:00Z,1.36\n2024-10-01T04:06:00Z,1.382\n2024-10-01T04:12:00Z,1.404\n2024-10-01T04:18:00Z,1.427\n2024-10-01T04:24:00Z,1.449\n2024-10-01T04:30:00Z,1.469\n2024-10-01T04:36:00Z,1.49\n2024-10-01T04:42:00Z,1.509\n2024-10-01T04:48:00Z,1.526\n2024-10-01T04:54:00Z,1.545\n2024-10-01T05:00:00Z,1.573\n2024-10-01T05:06:00Z,1.598\n2024-10-01T05:12:00Z,1.621\n2024-10-01T05:18:00Z,1.634\n2024-10-01T05:24:00Z,1.652\n2024-10-01T05:30:00Z,1.657\n2024-10-01T05:36:00Z,1.668\n2024-10-01T05:42:00Z,1.684\n2024-10-01T05:48:00Z,1.692\n2024-10-01T05:54:00Z,1.698\n2024-10-01T06:00:00Z,4.8\n2024-10-01T06:06:00Z,1.706\n2024-10-01T06:12:00Z,1.703\n2024-10-01T06:18:00Z,1.698\n2024-10-01T06:24:00Z,1.693\n2024-10-01T06:30:00Z,1.694\n2024-10-01T06:36:00Z,1.693\n2024-10-01T06:42:00Z,1.685\n2024-10-01T06:48:00Z,1.672\n2024-10-01T06:54:00Z,1.664\n2024-10-01T07:00:00Z,1.655\n2024-10-01T07:06:00Z,1.643\n2024-10-01T07:12:00Z,1.637\n2024-10-01T07:18:00Z,1.609\n2024-10-01T07:24:00Z,1.579\n2024-10-01T07:30:00Z,1.553\n2024-10-01T07:36:00Z,1.526\n2024-10-01T07:42:00Z,1.504\n2024-10-01T07:48:00Z,1.483\n2024-10-01T07:54:00Z,1.455\n2024-10-01T08:00:00Z,1.423\n2024-10-01T08:06:00Z,1.389\n2024-10-01T08:12:00Z,1.351\n2024-10-01T08:18:00Z,1.309\n2024-10-01T08:24:00Z,1.28\n2024-10-01T08:30:00Z,1.249\n2024-10-01T08:36:00Z,1.211\n2024-10-01T08:42:00Z,1.174\n2024-10-01T08:48:00Z,1.137\n2024-10-01T08:54:00Z,1.093\n2024-10-01T09:00:00Z,1.054\n2024-10-01T09:06:00Z,1.005\n2024-10-01T09:12:00Z,0.95\n2024-10-01T09:18:00Z,0.897\n2024-10-01T09:24:00Z,0.859\n2024-10-01T09:30:00Z,0.829\n2024-10-01T09:36:00Z,0.801\n2024-10-01T09:42:00Z,0.771\n2024-10-01T09:48:00Z,0.73\n2024-10-01T09:54:00Z,0.683\n2024-10-01T10:00:00Z,0.641\n2024-10-01T10:06:00Z,0.607\n2024-10-01T10:12:00Z,0.584\n2024-10-01T10:18:00Z,0.558\n2024-10-01T10:24:00Z,0.533\n2024-10-01T10:30:00Z,0.51\n2024-10-01T10:36:00Z,0.49\n2024-10-01T10:42:00Z,0.467\n2024-10-01T10:48:00Z,0.451\n2024-10-01T10:54:00Z,0.439\n2024-10-01T11:00:00Z,0.421\n2024-10-01T11:06:00Z,0.404\n2024-10-01T11:12:00Z,0.374\n2024-10-01T11:18:00Z,0.35\n2024-10-01T11:24:00Z,0.332\n2024-10-01T11:30:00Z,0.318\n2024-10-01T11:36:00Z,0.322\n2024-10-01T11:42:00Z,0.324\n2024-10-01T11:48:00Z,0.319\n2024-10-01T11:54:00Z,0.307\n2024-10-01T12:00:00Z,1.100\n2024-10-01T12:06:00Z,1.100\n2024-10-01T12:12:00Z,1.100\n2024-10-01T12:18:00Z,1.100\n2024-10-01T12:24:00Z,1.100\n2024-10-01T12:30:00Z,1.100\n2024-10-01T12:36:00Z,1.100\n2024-10-01T12:42:00Z,0.326\n2024-10-01T12:48:00Z,0.341\n2024-10-01T12:54:00Z,0.361\n2024-10-01T13:00:00Z,0.383\n2024-10-01T13:06:00Z,0.392\n2024-10-01T13:12:00Z,0.405\n2024-10-01T13:18:00Z,0.42\n2024-10-01T13:24:00Z,0.428\n2024-10-01T13:30:00Z,0.443\n2024-10-01T13:36:00Z,0.463\n2024-10-01T13:42:00Z,0.487\n2024-10-01T13:48:00Z,0.516\n2024-10-01T13:54:00Z,0.548\n2024-10-01T14:00:00Z,0.575\n2024-10-01T14:06:00Z,0.604\n2024-10-01T14:12:00Z,0.627\n2024-10-01T14:18:00Z,0.655\n2024-10-01T14:24:00Z,0.671\n2024-10-01T14:30:00Z,0.691\n2024-10-01T14:36:00Z,0.719\n2024-10-01T14:42:00Z,0.754\n2024-10-01T14:48:00Z,0.797\n2024-10-01T14:54:00Z,0.83\n2024-10-01T15:00:00Z,0.856\n2024-10-01T15:06:00Z,0.889\n2024-10-01T15:12:00Z,0.917\n2024-10-01T15:18:00Z,0.945\n2024-10-01T15:24:00Z,0.973\n2024-10-01T15:30:00Z,1.004\n2024-10-01T15:36:00Z,1.034\n2024-10-01T15:42:00Z,1.063\n2024-10-01T15:48:00Z,1.1\n2024-10-01T15:54:00Z,1.128\n2024-10-01T16:00:00Z,1.152\n2024-10-01T16:06:00Z,1.189\n2024-10-01T16:12:00Z,1.224\n2024-10-01T16:18:00Z,1.256\n2024-10-01T16:24:00Z,1.274\n2024-10-01T16:30:00Z,1.292\n2024-10-01T16:36:00Z,1.322\n2024-10-01T16:42:00Z,1.351\n2024-10-01T16:48:00Z,1.373\n2024-10-01T16:54:00Z,1.405\n2024-10-01T17:00:00Z,1.435\n2024-10-01T17:06:00Z,1.457\n2024-10-01T17:12:00Z,1.479\n2024-10-01T17:18:00Z,1.502\n2024-10-01T17:24:00Z,1.521\n2024-10-01T17:30:00Z,1.541\n2024-10-01T17:36:00Z,1.567\n2024-10-01T17:42:00Z,1.594\n2024-10-01T17:48:00Z,1.604\n2024-10-01T17:54:00Z,1.628\n2024-10-01T18:00:00Z,\n2024-10-01T18:06:00Z,1.675\n2024-10-01T18:12:00Z,1.691\n2024-10-01T18:18:00Z,1.701\n2024-10-01T18:24:00Z,1.698\n2024-10-01T18:30:00Z,1.695\n2024-10-01T18:36:00Z,1.702\n2024-10-01T18:42:00Z,1.711\n2024-10-01T18:48:00Z,1.714\n2024-10-01T18:54:00Z,1.717\n2024-10-01T19:00:00Z,1.721\n2024-10-01T19:06:00Z,1.722\n2024-10-01T19:12:00Z,1.717\n2024-10-01T19:18:00Z,1.705\n2024-10-01T19:24:00Z,1.696\n2024-10-01T19:30:00Z,1.691\n2024-10-01T19:36:00Z,1.669\n2024-10-01T19:42:00Z,1.645\n2024-10-01T19:48:00Z,1.624\n2024-10-01T19:54:00Z,1.611\n2024-10-01T20:00:00Z,1.594\n2024-10-01T20:06:00Z,1.584\n2024-10-01T20:12:00Z,1.568\n2024-10-01T20:18:00Z,1.536\n2024-10-01T20:24:00Z,1.503\n2024-10-01T20:30:00Z,1.465\n2024-10-01T20:36:00Z,1.434\n2024-10-01T20:42:00Z,1.4\n2024-10-01T20:48:00Z,1.373\n2024-10-01T20:54:00Z,1.346\n2024-10-01T21:00:00Z,1.316\n2024-10-01T21:06:00Z,1.289\n2024-10-01T21:12:00Z,1.259\n2024-10-01T21:18:00Z,1.219\n2024-10-01T21:24:00Z,1.173\n2024-10-01T21:30:00Z,1.127\n2024-10-01T21:36:00Z,1.081\n2024-10-01T21:42:00Z,1.041\n2024-10-01T21:48:00Z,1.009\n2024-10-01T21:54:00Z,0.967\n2024-10-01T22:00:00Z,0.927\n2024-10-01T22:06:00Z,0.889\n2024-10-01T22:12:00Z,0.858\n2024-10-01T22:18:00Z,0.832\n2024-10-01T22:24:00Z,0.805\n2024-10-01T22:30:00Z,0.774\n2024-10-01T22:36:00Z,0.734\n2024-10-01T22:42:00Z,0.698\n2024-10-01T22:48:00Z,0.668\n2024-10-01T22:54:00Z,0.642\n2024-10-01T23:00:00Z,0.62\n2024-10-01T23:06:00Z,0.606\n2024-10-01T23:12:00Z,0.583\n2024-10-01T23:18:00Z,0.566\n2024-10-01T23:24:00Z,0.556\n2024-10-01T23:30:00Z,0.536\n2024-10-01T23:36:00Z,0.524\n2024-10-01T23:42:00Z,0.509\n2024-10-01T23:48:00Z,0.492\n2024-10-01T23:54:00Z,0.473\n2024-10-02T00:00:00Z,0.462\n",
+  "proof": "AE9wZW5UaW1lc3RhbXBzAABQcm9vZgC/ieLohOiSlAEIRY+0QohwCh70wZw6hhLbajlICAs1JflZPlrVRacTZyPwEDjlUnRYRCvu/bwYfMejCUQI//AI9gjMeS0VCCMI8BA6WuSh6DEarLdjwCaS9VbNCPEgey4+X32PE2P+VDajtgX2kh5VHFsInW3rl2uwCvB7RWsI8SBERRVgvoV76wAySKbPXF4MM/EcE1KpzTqWsm1tyJsnPQjwIJgbARRcg+lFApiQAfUAnSH3bKl5r2w98I9Y9IZTy531CPEEatyFl/AIazqX0cJ+hO4Ag9/jDS75DI4uLWh0dHBzOi8vYWxpY2UuYnRjLmNhbGVuZGFyLm9wZW50aW1lc3RhbXBzLm9yZ/AIffE7eQ+yIjUI8BADl4w/PAPmmXcw2PYvRH9kCPAgLq+AQ4c8rkL8Cq5tKPhqB3lv4QzAjj+fpex0I2z/TMAI8CDK0rFbLiZYUYsz02mgxzI+KfAmv+Zje8qvlJka8cQQuwjxBGrchZfwCOaGIwpTboNKAIPf4w0u+QyOLCtodHRwczovL2JvYi5idGMuY2FsZW5kYXIub3BlbnRpbWVzdGFtcHMub3Jn"
+}
