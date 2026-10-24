@@ -1,0 +1,18 @@
+import { useMemo, useState } from 'react';import type { Audit,Reading,Decision } from './core/types.ts';
+const time=(s:string)=>new Date(s).toISOString().slice(11,16);
+export function Chart({readings,audit,decisions=[],selected,onSelect,compact=false}:{readings:Reading[];audit?:Audit;decisions?:Decision[];selected?:string;onSelect?:(id:string)=>void;compact?:boolean}){
+ const [hover,setHover]=useState<string>();
+ const {points,path,min,max,lo,hi}=useMemo(()=>{const vals=readings.filter(r=>r.value!==null).map(r=>r.value!);const low=Math.min(...vals,0),high=Math.max(...vals,1),pad=(high-low)*.12;const min=low-pad,max=high+pad;const lo=Math.min(...readings.map(r=>r.ms)),hi=Math.max(...readings.map(r=>r.ms));const points=readings.map(r=>({r,x:64+(r.ms-lo)/(hi-lo||1)*1004,y:244-(r.value!-min)/(max-min)*212}));let gap=true;const path=points.map(p=>{if(p.r.value===null){gap=true;return '';}const s=`${gap?'M':'L'}${p.x.toFixed(2)},${p.y.toFixed(2)}`;gap=false;return s;}).join(' ');return {points,path,min,max,lo,hi};},[readings]);
+ const flagged=new Set(audit?.rows.filter(r=>r.flags.length).map(r=>r.rowId));const excluded=new Set(decisions.filter(d=>d.action==='exclude').map(d=>d.rowId));const active=points.find(p=>p.r.id===(hover??selected));
+ return <div className={`chart ${compact?'compact':''}`}><svg viewBox="0 0 1100 300" role="img" aria-label={`Water levels in metres. ${readings.length} readings from ${readings[0]?.time.slice(0,10)}. Use the reading list below for values and review actions.`}>
+ <defs><linearGradient id={compact?'water-small':'water'} x1="0" y1="0" x2="0" y2="1"><stop stopColor="#0b6975" stopOpacity=".09"/><stop offset="1" stopColor="#0b6975" stopOpacity="0"/></linearGradient></defs>
+ {[0,1,2,3,4].map(i=>{const y=32+i*53;return <g key={i}><line x1="64" x2="1068" y1={y} y2={y} stroke="#dfe8e8" strokeDasharray="3 5"/><text x="46" y={y+4} textAnchor="end" className="chart-label">{(max-(max-min)*i/4).toFixed(1)}</text></g>;})}
+ <text x="20" y="18" className="chart-label">m</text>
+ {readings.length>1&&<path d={`${path} L${points.at(-1)!.x},244 L64,244 Z`} fill={`url(#${compact?'water-small':'water'})`}/>}
+ <path d={path} fill="none" stroke="#126b76" strokeWidth="2.3" strokeLinejoin="round"/>
+ {[0,1,2,3,4].map(i=><text key={i} x={64+i*251} y="274" textAnchor={i===0?'start':i===4?'end':'middle'} className="chart-label">{time(new Date(lo+(hi-lo)*i/4).toISOString())}</text>)}
+ {!compact&&points.filter(p=>p.r.value!==null&&flagged.has(p.r.id)).map(p=><circle key={p.r.id} cx={p.x} cy={p.y} r={selected===p.r.id?6:4.5} fill={excluded.has(p.r.id)?'#71858b':'#b5701c'} stroke="white" strokeWidth="1.5"/>)}
+ {active&&active.r.value!==null&&<g><line x1={active.x} x2={active.x} y1="24" y2="248" stroke="#18363e" strokeDasharray="3 3"/><circle cx={active.x} cy={active.y} r="6" fill="#075e67" stroke="white" strokeWidth="2"/><rect x={Math.max(65,Math.min(active.x-70,926))} y="4" width="142" height="24" rx="5" fill="#18363e"/><text x={Math.max(65,Math.min(active.x-70,926))+71} y="20" textAnchor="middle" fill="white" fontSize="12">{time(active.r.time)} · {active.r.value.toFixed(3)} m</text></g>}
+ {onSelect&&points.filter(p=>p.r.value!==null).map(p=><circle key={'hit'+p.r.id} cx={p.x} cy={p.y} r="9" fill="transparent" onMouseEnter={()=>setHover(p.r.id)} onMouseLeave={()=>setHover(undefined)} onClick={()=>onSelect(p.r.id)} style={{cursor:'pointer'}}/>)}
+ </svg><div className="chart-foot"><span><i className="legend-line"/>Water level {audit&&<><i className="legend-dot"/>Needs a closer look</>}</span><span>UTC · {readings[0]?.time.slice(0,10)}</span></div></div>;
+}

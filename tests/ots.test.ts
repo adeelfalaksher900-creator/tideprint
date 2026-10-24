@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { encodeDetached, parseDetached, checkDigest, pendingNode, sha, type StampNode } from '../server/ots.ts';
+const digest='ab'.repeat(32);
+test('standard OTS pending proof roundtrips and binds the digest',()=>{const node=pendingNode(Buffer.from(digest,'hex'),'https://a.pool.opentimestamps.org');const proof=encodeDetached(digest,node);const parsed=parseDetached(proof);assert.equal(parsed.digest,digest);assert.equal(parsed.node.entries[0].kind,'pending');assert.doesNotThrow(()=>checkDigest(digest,proof));assert.throws(()=>checkDigest('cd'.repeat(32),proof),/different/);});
+test('OTS operations reproduce a SHA-256 path before an attestation',()=>{const msg=Buffer.from(digest,'hex'),arg=Buffer.from('salt');const combined=Buffer.concat([msg,arg]);const leaf=pendingNode(sha(combined),'https://a.pool.opentimestamps.org');const node:StampNode={msg,entries:[{kind:'op',tag:0xf0,arg,child:{msg:combined,entries:[{kind:'op',tag:8,child:leaf}]}}]};const p=parseDetached(encodeDetached(digest,node));const x=p.node.entries[0];assert.equal(x.kind,'op');if(x.kind==='op')assert.equal(x.child.msg.toString('hex'),combined.toString('hex'));assert.equal(sha(combined).toString('hex'),createHash('sha256').update(combined).digest('hex'));});
+test('OTS rejects bad magic, oversized proof, unsupported operation and trailing bytes',()=>{const p=encodeDetached(digest,pendingNode(Buffer.from(digest,'hex'),'https://a.pool.opentimestamps.org'));for(const b of [Buffer.alloc(70000),Buffer.from('bad'),Buffer.concat([p,Buffer.from([1])])])assert.throws(()=>parseDetached(b));const x=Buffer.from(p);x[65]=0x99;assert.throws(()=>parseDetached(x));});
+test('OTS refuses malformed digests and non-HTTPS pending URLs',()=>{assert.throws(()=>checkDigest('bad',Buffer.alloc(1)));assert.throws(()=>pendingNode(Buffer.alloc(32),'http://localhost/secret'));});

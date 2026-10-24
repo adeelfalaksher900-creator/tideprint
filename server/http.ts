@@ -1,0 +1,13 @@
+export class RequestError extends Error { status:number; constructor(message:string,status=400){super(message);this.status=status;} }
+export async function fetchBounded(url:string,init:RequestInit={},max=1000000):Promise<Buffer>{
+  const response=await fetch(url,{...init,redirect:'error',signal:AbortSignal.timeout(10000),headers:{'User-Agent':'Tideprint/1.0 (+https://github.com/adeelfalaksher900-creator/tideprint)',...init.headers}});
+  if(!response.ok)throw new Error(`Upstream service returned ${response.status}. Please try again.`);
+  if(Number(response.headers.get('content-length'))>max)throw new Error('Upstream response is too large.');
+  const reader=response.body?.getReader();if(!reader)throw new Error('Upstream service returned no data.');const chunks:Uint8Array[]=[];let length=0;
+  try{while(true){const {done,value}=await reader.read();if(done)break;length+=value.length;if(length>max)throw new Error('Upstream response is too large.');chunks.push(value);}}finally{await reader.cancel();}
+  return Buffer.concat(chunks);
+}
+export type Req={method?:string;query?:Record<string,string|string[]|undefined>;body?:unknown;headers:Record<string,string|string[]|undefined>};
+export type Res={status:(n:number)=>Res;json:(v:unknown)=>void;setHeader:(k:string,v:string)=>void;end:()=>void};
+export function endpoint(method:string,fn:(req:Req)=>Promise<unknown>){return async(req:Req,res:Res)=>{res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');if(req.method!==method){res.setHeader('Allow',method);return res.status(405).json({error:`Use ${method} for this request.`});}try{if(Number(req.headers['content-length'])>100000)throw new RequestError('Request is too large.',413);res.status(200).json(await fn(req));}catch(e){const status=e instanceof RequestError?e.status:502;const message=e instanceof Error?e.message:'The service could not complete this request.';res.status(status).json({error:message.includes('timeout')||message.includes('aborted')?'The service took too long. Your work is safe; please try again.':message});}};}
+export function bodyObject(req:Req):Record<string,unknown>{if(!req.headers['content-type']?.includes('application/json'))throw new RequestError('Send a JSON request.');let b=req.body;if(typeof b==='string'){if(b.length>100000)throw new RequestError('Request is too large.',413);try{b=JSON.parse(b);}catch{throw new RequestError('Request is not valid JSON.');}}if(!b||typeof b!=='object'||Array.isArray(b))throw new RequestError('Send a JSON object.');if(JSON.stringify(b).length>100000)throw new RequestError('Request is too large.',413);return b as Record<string,unknown>;}
