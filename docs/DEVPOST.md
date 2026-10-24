@@ -45,7 +45,9 @@ Portable verification also needs more than a matching hash. The verifier reprodu
 
 The deployed app can fetch actual NOAA data, review flagged readings with reasons, seal the result and export a portable evidence bundle. Automated tests cover parsing, QA, model determinism, receipt tampering, formula-safe CSV export, request validation and proof encoding. Real calendar proofs were accepted by the official Python OpenTimestamps parser. Browser checks exercised desktop and phone-size review workflows.
 
-The archived reference uses 241 real NOAA observations. A separate practice copy lists its deliberately injected spike, flat stretch and missing value. These are never presented as observed measurements.
+The archived reference uses 241 real NOAA observations. A separate test fixture lists its deliberately injected spike, flat stretch and missing value. It is retained for regression testing and is not presented as observed measurements.
+
+The current source passes 40 automated tests, including React interaction tests for import errors, review decisions, sealing, saved-data recovery and tamper detection. A regression test also protects negative water-level values in CSV exports. The updated source includes a coastal design refresh; deployment of that refresh is pending project-team authorization.
 
 ## What we learned
 

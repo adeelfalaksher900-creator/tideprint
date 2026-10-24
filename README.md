@@ -30,7 +30,7 @@ Tideprint keeps the observation and the decision together. It is a small, usable
 
 **No sign-in, wallet, fee, API key or central database.** Work stays in browser storage. The server handles public NOAA queries and digests/proofs, not private CSVs or review notes. Export important work before clearing site data.
 
-The home page includes a real archived NOAA day. A separate practice copy explicitly lists its deliberate edits; it must not be used as observed measurements.
+The home page includes a real archived NOAA day and opens only original observations. A deliberately modified fixture remains in the test suite, with every edit documented; it is not offered as observed data in the main workflow.
 
 ## What makes it different
 

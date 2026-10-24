@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parseCSV, csvCell } from '../src/core/csv.ts';
 import { analyze, isolationForest } from '../src/core/audit.ts';
-import { seal, verifyBundle, canonical, sha256 } from '../src/core/receipt.ts';
+import { seal, verifyBundle, canonical, sha256, reviewedCSV } from '../src/core/receipt.ts';
 import { DEFAULT_CONFIG, type Draft } from '../src/core/types.ts';
 const raw = 'timestamp,value\r\n2024-10-01T00:00:00Z,1\r\n2024-10-01T00:06:00Z,12\r\n2024-10-01T00:12:00Z,1\r\n';
 const draft = (): Draft => { const audit=analyze(parseCSV(raw),DEFAULT_CONFIG); return {id:'test',name:'Coastal review',rawCSV:raw,source:{kind:'csv',name:'A test file',datum:'MLLW',unit:'m'},config:{...DEFAULT_CONFIG},decisions:audit.rows.filter(r=>r.flags.length).map(r=>({rowId:r.rowId,action:'exclude',reason:'Compared with station context.'})),updatedAt:new Date().toISOString()}; };
@@ -16,4 +16,5 @@ test('receipt roundtrip reproduces checks; edits to raw bytes, settings, review 
 test('even a recomputed digest cannot hide fabricated audit results',async()=>{const b=await seal(draft(),'Reviewer');b.manifest.audit.rows[0].flags=[];b.manifest.audit.summary.flags=0;b.digest=await sha256(canonical(b.manifest));await assert.rejects(verifyBundle(b),/cannot be reproduced/);});
 test('decision integrity rejects duplicates and decisions for normal rows',async()=>{const d=draft();d.decisions.push(d.decisions[0]);await assert.rejects(seal(d,'Reviewer'),/unique/);});
 test('CSV export neutralises spreadsheet formulas in review notes',()=>{assert.equal(csvCell('=HYPERLINK("bad")'),'"\'=HYPERLINK(""bad"")"');assert.equal(csvCell(' ordinary'),' ordinary');});
+test('reviewed CSV keeps below-datum numeric levels while protecting textual formulas',async()=>{const d=draft();d.rawCSV='timestamp,value\n2024-10-01T00:00:00Z,-0.25\n2024-10-01T00:06:00Z,-0.24\n';d.decisions=[];const b=await seal(d,'Export test');const exported=reviewedCSV(b);assert.match(exported,/,\-0\.25,not flagged,/);assert.doesNotMatch(exported,/'-0\.25/);assert.equal(csvCell('-1+2'),"'-1+2");assert.equal(csvCell(-0.25),'-0.25');});
 test('canonical encoding sorts keys and rejects undefined and non-finite values',()=>{assert.equal(canonical({z:1,a:[true,null]}),'{"a":[true,null],"z":1}');assert.throws(()=>canonical({a:undefined}));assert.throws(()=>canonical(NaN));});

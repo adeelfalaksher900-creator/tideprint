@@ -13,7 +13,7 @@
 
 Public NOAA fetch, archived and labelled practice data, CSV import and validation, deterministic Isolation Forest and rule checks, per-reading and selected bulk decisions, unresolved-review seal prevention, original-data retention, local draft/receipt storage, JSON/CSV exports, tamper detection, and standard OpenTimestamps proof generation/upgrade. An earlier automated NOAA integration receipt was verified against Bitcoin block 972,903. See `VALIDATION.md` and the reproducible `examples/`.
 
-24 automated tests, TypeScript/Vite production build and dependency audit passed. The source ZIP was extracted and built independently. The current source contains recovery, mobile-chart, calendar-failure and packaging fixes after the public build; deployment of that release requires the existing Vercel connection to authorize the project's team. The working public URL remains available.
+40 automated tests, TypeScript/Vite production build and dependency audit passed. The source ZIP was extracted and built independently. The current source contains recovery, mobile-chart, calendar-failure, numeric CSV export and packaging fixes plus the Coastal Observatory design refresh after the public build; deployment of that release requires the existing Vercel connection to authorize the project's team. The working public URL remains available.
 
 ## Submission state and remaining actions
 
@@ -26,3 +26,7 @@ The official deadline is **25 October 2026, 17:00 UTC+03**, equivalent to **19:0
 ## Practical limits
 
 Flags are review prompts, not validated error probabilities or flood forecasts. Reviewer labels are self-declared. A seal is not a signature or data-accuracy certificate; compare the sender's digest independently. Bitcoin header/path checks use Blockstream's chain view rather than full-node consensus. Local browser storage has no account authentication, shared cloud workspace or cross-device sync. Public adapters have strict request and response limits but no shared global rate limiter. No field impact, accuracy benchmark or measured emissions reduction is claimed.
+
+## Latest continuation
+
+The main product offers original NOAA data and imported CSVs. The altered fixture is retained for testing and older saved records keep their provenance. The updated UI needs real-browser visual verification after deployment; 11 jsdom component tests cover its functional interactions. The 12ui hosted design service requires sign-in. Devpost's source attachment is not yet present; upload needs a file visible on the connected browser device. Do not claim the refreshed build is live or the submission complete until these gates are resolved.

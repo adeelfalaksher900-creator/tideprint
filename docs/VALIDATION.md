@@ -23,3 +23,13 @@ The reference receipt is labelled 'Automated integration check'. It is an integr
 - Production HTTP response headers include CSP, `nosniff`, frame denial, restrictive permissions policy, referrer policy and HSTS.
 
 The continuation recovered later source changes that had not been pushed to the original draft PR. These include smaller chart rendering, focus/scroll recovery, compressed self-hosted font and explicit calendar-failure feedback. The current public deployment still serves the earlier working build until the verified source release is deployed. Vercel team access currently requires account authorization; no new deployment is claimed here.
+
+## Design and interaction continuation · 24 October 2026
+
+- **40 automated tests passed:** the prior 24 plus 11 React component integration tests, four bounded-network/NOAA/API tests and one negative-level export regression. Component tests run with Testing Library and jsdom; the worker boundary and network are mocked while the actual parser, analysis and receipt functions run.
+- UI coverage: original-only home copy, archive import and persistence, Escape/focus return, invalid CSV recovery, NOAA failure recovery, unresolved seal blocking, bulk decisions through sealing, search/pagination, invalid settings rejection, independent receipt verification and tampering, corrupt-storage preservation, and reduced-motion Anatomy controls.
+- The export regression found and fixed a real defect: a numeric value such as -0.25 was previously prefixed with a spreadsheet apostrophe. Numeric readings now stay numeric while textual formulas are still neutralized.
+- TypeScript check and production build pass. Dependency audit: zero known vulnerabilities at this check.
+- Visual design source: ocean navigation, clearer panels, larger mobile text/controls and a reusable interactive Anatomy press on the workspace. No event/demo/prototype wording appears in the normal workspace; provenance of pre-existing modified receipts is retained.
+- **Not yet verified:** rendering of this new build in a real desktop/mobile browser and deployment to the existing public domain. The local server starts on 127.0.0.1, but the connected browser reports connection refused because it is on a separate device. Vercel API access returns 403 for the existing project team. Earlier live-build browser results above are not proof of the new visual build.
+- Devpost remains a draft. Video/gallery production and final submission remain paused by the participant's instruction.

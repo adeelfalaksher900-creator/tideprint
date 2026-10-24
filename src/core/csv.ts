@@ -45,6 +45,9 @@ export function parseCSV(raw: string): Reading[] {
 }
 
 export function csvCell(value: unknown): string {
+  // Numeric readings are already validated; preserve negative levels as numbers.
+  // Only text cells need protection from spreadsheet formula interpretation.
+  if (typeof value === 'number' && Number.isFinite(value)) return String(value);
   let s = String(value ?? '');
   if (/^[\s]*[=+@-]/.test(s)) s = "'" + s;
   return /[",\r\n]/.test(s) ? '"' + s.replaceAll('"', '""') + '"' : s;
