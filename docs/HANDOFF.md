@@ -13,7 +13,7 @@
 
 Public NOAA fetch, archived and labelled practice data, CSV import and validation, deterministic Isolation Forest and rule checks, per-reading and selected bulk decisions, unresolved-review seal prevention, original-data retention, local draft/receipt storage, JSON/CSV exports, tamper detection, and standard OpenTimestamps proof generation/upgrade. An earlier automated NOAA integration receipt was verified against Bitcoin block 972,903. See `VALIDATION.md` and the reproducible `examples/`.
 
-40 automated tests, TypeScript/Vite production build and dependency audit passed. The source ZIP was extracted and built independently. The current source contains recovery, mobile-chart, calendar-failure, numeric CSV export and packaging fixes plus the Coastal Observatory design refresh after the public build; deployment of that release requires the existing Vercel connection to authorize the project's team. The working public URL remains available.
+40 automated tests, TypeScript/Vite production build and dependency audit passed. The source ZIP was extracted and built independently. The current source contains recovery, mobile-chart, calendar-failure, numeric CSV export and packaging fixes plus the Coastal Observatory design refresh after the public build; that release is now deployed to the public URL after the participant authorized Vercel team access.
 
 ## Submission state and remaining actions
 
@@ -29,4 +29,10 @@ Flags are review prompts, not validated error probabilities or flood forecasts. 
 
 ## Latest continuation
 
-The main product offers original NOAA data and imported CSVs. The altered fixture is retained for testing and older saved records keep their provenance. The updated UI needs real-browser visual verification after deployment; 11 jsdom component tests cover its functional interactions. The 12ui hosted design service requires sign-in. Devpost's source attachment is not yet present; upload needs a file visible on the connected browser device. Do not claim the refreshed build is live or the submission complete until these gates are resolved.
+The main product offers original NOAA data and imported CSVs. The altered fixture is retained for testing and older saved records keep their provenance. The updated UI needs real-browser visual verification after deployment; 11 jsdom component tests cover its functional interactions. The 12ui hosted design service requires sign-in. Devpost's source attachment is not yet present; upload needs a file visible on the connected browser device. The refreshed build is live. Do not claim the submission complete until the remaining gates are resolved.
+
+## Production verification · 24 October 2026
+
+Commit e4a014ad539ce2e9adc1280d0ffba5e14d69ffbf is READY in production as dpl_EuwhTyFDYqtShNUQsfKeMb5XvQNN at https://tideprint.vercel.app. Desktop rendering was inspected. The live NOAA API returned 241 readings. A fresh public-browser journey completed archived import, bulk review, sealing, JSON copy and independent verification; appending a newline to the CSV correctly triggered the original-data mismatch warning. All 40 automated tests and the production build passed again. HTTP checks returned 200 for the app/NOAA/source package, 400 for an invalid station and 405 for GET on the timestamp endpoint. Security headers are present. The deployed source ZIP passed CRC checks; its only byte difference from the local package is equivalent minified vercel.json formatting.
+
+Still pending: final mobile visual check and Devpost source attachment/story deployment-status update. The connected browser became unavailable from the current ChatGPT context; do not substitute a separate signed-in session. Video/gallery and final submission remain paused. Runtime error-log inspection was unavailable under the returned retention restriction; no clean server-log claim is made.
