@@ -1,0 +1,288 @@
+{
+  "kind": "Tideprint deterministic fault-injection evaluation",
+  "date": "2024-10-01",
+  "config": {
+    "min": -5,
+    "max": 8,
+    "spike": 0.8,
+    "rate": 3,
+    "flatMinutes": 30,
+    "flatTolerance": 0.001,
+    "intervalMinutes": 6,
+    "modelThreshold": 0.68
+  },
+  "algorithm": "tideprint-qa/1.0.0",
+  "passed": 21,
+  "total": 21,
+  "caseDetectionRate": 1,
+  "limitations": [
+    "Deliberately selected synthetic faults in real NOAA series.",
+    "No independent labels, random holdout, analyst user study or field-impact measurement.",
+    "The detection rate is not sensor-error accuracy, ML precision/recall or a judging score."
+  ],
+  "stations": [
+    {
+      "station": "9414290",
+      "source": {
+        "kind": "noaa",
+        "name": "San Francisco, CA",
+        "station": "9414290",
+        "date": "2024-10-01",
+        "unit": "m",
+        "datum": "MLLW",
+        "url": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=water_level&begin_date=20241001&range=24&datum=MLLW&station=9414290&time_zone=gmt&units=metric&format=json&application=Tideprint",
+        "retrievedAt": "2026-10-24T18:59:03.816Z",
+        "note": "NOAA CO-OPS six-minute water-level observations. MLLW is the local Mean Lower Low Water datum. NOAA quality status is separate from Tideprint review flags."
+      },
+      "rawSHA256": "06a4a6c5a894f4933d62a0f92bd1bbe1b294e7e3cb7b9494d35a5be0d5746f81",
+      "observations": 241,
+      "baselineFlagged": 2,
+      "baselineMeaning": "Flags on unmodified archived data; these are not labelled false positives.",
+      "results": [
+        {
+          "case": "blank value",
+          "expectedRow": 31,
+          "expectedFlag": "missing",
+          "observedFlags": [
+            "missing"
+          ],
+          "passed": true
+        },
+        {
+          "case": "out-of-range isolated spike",
+          "expectedRow": 61,
+          "expectedFlag": "spike",
+          "observedFlags": [
+            "rate",
+            "range",
+            "spike",
+            "model"
+          ],
+          "passed": true
+        },
+        {
+          "case": "30-minute constant stretch",
+          "expectedRow": 107,
+          "expectedFlag": "flat",
+          "observedFlags": [
+            "flat"
+          ],
+          "passed": true
+        },
+        {
+          "case": "repeated timestamp",
+          "expectedRow": 41,
+          "expectedFlag": "duplicate",
+          "observedFlags": [
+            "duplicate"
+          ],
+          "passed": true
+        },
+        {
+          "case": "four removed observations",
+          "expectedRow": 81,
+          "expectedFlag": "gap",
+          "observedFlags": [
+            "gap",
+            "model"
+          ],
+          "passed": true
+        },
+        {
+          "case": "two reversed rows",
+          "expectedRow": 62,
+          "expectedFlag": "order",
+          "observedFlags": [
+            "order"
+          ],
+          "passed": true
+        },
+        {
+          "case": "fast positive change",
+          "expectedRow": 111,
+          "expectedFlag": "rate",
+          "observedFlags": [
+            "rate",
+            "model"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "station": "8518750",
+      "source": {
+        "kind": "noaa",
+        "name": "The Battery, NY",
+        "station": "8518750",
+        "date": "2024-10-01",
+        "unit": "m",
+        "datum": "MLLW",
+        "url": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=water_level&begin_date=20241001&range=24&datum=MLLW&station=8518750&time_zone=gmt&units=metric&format=json&application=Tideprint",
+        "retrievedAt": "2026-10-24T18:59:03.846Z",
+        "note": "NOAA CO-OPS six-minute water-level observations. MLLW is the local Mean Lower Low Water datum. NOAA quality status is separate from Tideprint review flags."
+      },
+      "rawSHA256": "65d21ddecadc6cd8607c517cade30ff3568dea307d54ff61f8ea15af17d04021",
+      "observations": 241,
+      "baselineFlagged": 2,
+      "baselineMeaning": "Flags on unmodified archived data; these are not labelled false positives.",
+      "results": [
+        {
+          "case": "blank value",
+          "expectedRow": 31,
+          "expectedFlag": "missing",
+          "observedFlags": [
+            "missing"
+          ],
+          "passed": true
+        },
+        {
+          "case": "out-of-range isolated spike",
+          "expectedRow": 61,
+          "expectedFlag": "spike",
+          "observedFlags": [
+            "rate",
+            "range",
+            "spike",
+            "model"
+          ],
+          "passed": true
+        },
+        {
+          "case": "30-minute constant stretch",
+          "expectedRow": 107,
+          "expectedFlag": "flat",
+          "observedFlags": [
+            "flat"
+          ],
+          "passed": true
+        },
+        {
+          "case": "repeated timestamp",
+          "expectedRow": 41,
+          "expectedFlag": "duplicate",
+          "observedFlags": [
+            "duplicate"
+          ],
+          "passed": true
+        },
+        {
+          "case": "four removed observations",
+          "expectedRow": 81,
+          "expectedFlag": "gap",
+          "observedFlags": [
+            "gap"
+          ],
+          "passed": true
+        },
+        {
+          "case": "two reversed rows",
+          "expectedRow": 62,
+          "expectedFlag": "order",
+          "observedFlags": [
+            "order",
+            "model"
+          ],
+          "passed": true
+        },
+        {
+          "case": "fast positive change",
+          "expectedRow": 111,
+          "expectedFlag": "rate",
+          "observedFlags": [
+            "rate",
+            "model"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "station": "9447130",
+      "source": {
+        "kind": "noaa",
+        "name": "Seattle, WA",
+        "station": "9447130",
+        "date": "2024-10-01",
+        "unit": "m",
+        "datum": "MLLW",
+        "url": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=water_level&begin_date=20241001&range=24&datum=MLLW&station=9447130&time_zone=gmt&units=metric&format=json&application=Tideprint",
+        "retrievedAt": "2026-10-24T18:59:03.892Z",
+        "note": "NOAA CO-OPS six-minute water-level observations. MLLW is the local Mean Lower Low Water datum. NOAA quality status is separate from Tideprint review flags."
+      },
+      "rawSHA256": "e87415ac8a58a591882c5dc2f0ef8ebf365f9601242f8fc3d1f26eebcf85d677",
+      "observations": 241,
+      "baselineFlagged": 4,
+      "baselineMeaning": "Flags on unmodified archived data; these are not labelled false positives.",
+      "results": [
+        {
+          "case": "blank value",
+          "expectedRow": 31,
+          "expectedFlag": "missing",
+          "observedFlags": [
+            "missing"
+          ],
+          "passed": true
+        },
+        {
+          "case": "out-of-range isolated spike",
+          "expectedRow": 61,
+          "expectedFlag": "spike",
+          "observedFlags": [
+            "rate",
+            "range",
+            "spike",
+            "model"
+          ],
+          "passed": true
+        },
+        {
+          "case": "30-minute constant stretch",
+          "expectedRow": 107,
+          "expectedFlag": "flat",
+          "observedFlags": [
+            "flat"
+          ],
+          "passed": true
+        },
+        {
+          "case": "repeated timestamp",
+          "expectedRow": 41,
+          "expectedFlag": "duplicate",
+          "observedFlags": [
+            "duplicate"
+          ],
+          "passed": true
+        },
+        {
+          "case": "four removed observations",
+          "expectedRow": 81,
+          "expectedFlag": "gap",
+          "observedFlags": [
+            "gap"
+          ],
+          "passed": true
+        },
+        {
+          "case": "two reversed rows",
+          "expectedRow": 62,
+          "expectedFlag": "order",
+          "observedFlags": [
+            "order"
+          ],
+          "passed": true
+        },
+        {
+          "case": "fast positive change",
+          "expectedRow": 111,
+          "expectedFlag": "rate",
+          "observedFlags": [
+            "rate",
+            "model"
+          ],
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

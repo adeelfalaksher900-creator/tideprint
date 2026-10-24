@@ -33,3 +33,11 @@ The continuation recovered later source changes that had not been pushed to the 
 - Visual design source: ocean navigation, clearer panels, larger mobile text/controls and a reusable interactive Anatomy press on the workspace. No event/demo/prototype wording appears in the normal workspace; provenance of pre-existing modified receipts is retained.
 - **Not yet verified:** rendering of this new build in a real desktop/mobile browser and deployment to the existing public domain. The local server starts on 127.0.0.1, but the connected browser reports connection refused because it is on a separate device. Vercel API access returns 403 for the existing project team. Earlier live-build browser results above are not proof of the new visual build.
 - Devpost remains a draft. Video/gallery production and final submission remain paused by the participant's instruction.
+
+## Strict judging audit and recovery hardening
+
+49 tests pass after adding complete draft-backup recovery, defensive validation of saved decisions, exact BOM/CRLF preservation, optional sender-digest checks and stricter NOAA response date/window validation. The source chooser uses ordinary grouped toggles rather than incomplete ARIA tabs.
+
+`npm run evaluate` reproduced 21 of 21 expected injected fault cases across three archived NOAA station-days. Results include source hashes, exact configuration and per-case expected/observed flags in `examples/evaluation/results.json`. These selected artificial faults do not establish ML precision/recall, sensor diagnosis accuracy or field impact.
+
+At 390px, the deployed home, review, bulk decision, seal and method states were exercised with no horizontal document overflow. A full independent verification journey and tamper rejection had already passed. New recovery/digest controls require live verification after this release is deployed. No real-user usability study or organization-scale deployment claim follows from these checks.
