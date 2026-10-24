@@ -11,3 +11,47 @@
 .verify-save{margin:24px 0}.press-figure{margin:25px 0 35px;max-width:850px;background:#fbfcfc}.figure-top,.figure-bottom{display:flex;justify-content:space-between;align-items:center;padding:18px 25px;gap:18px;font-size:11px}.figure-top{border-bottom:1px solid #e7eeee}.figure-top>span{color:#606e70;font-family:Georgia,serif}.figure-top strong{font-weight:500;color:#506e76}.press-figure svg{width:100%;display:block;max-height:390px;padding:5px 30px}.press-fill{fill:#f3f6f6}.press-top{fill:#f3f6f6}.shade-0{fill:#e5ebed}.shade-1{fill:#d4dee1}.shade-2{fill:#c7d4d8}.shade-3{fill:#b5c7cd}.press-outline{fill:none;stroke:#607c86;stroke-width:.65}.press-crease{fill:none;stroke:#a8bbc1;stroke-width:.45}.press-bevel{fill:none;stroke:#fff;stroke-width:.7}.tone-lo .press-top{fill:#dce6e9}.tone-hi .press-top{fill:white}.press-detail{fill:none;stroke:#9cb3bb;stroke-width:.55}.figure-bottom{border-top:1px solid #e7eeee;color:#5c737a}.figure-bottom .button{font-size:10px}.press-figure figcaption{font-size:11px;color:#5a6f76;line-height:1.8;padding:0 25px 22px;max-width:88ch}@media(max-width:590px){.press-figure svg{padding:4px 5px;min-height:250px}.figure-top,.figure-bottom{padding:17px 19px;font-size:9px;gap:12px}.figure-top strong{font-size:10px;text-align:right;max-width:26ch}.press-figure figcaption{padding:0 19px 20px;font-size:10px}.figure-bottom .button{min-height:40px;font-size:9px}}
 
 .skip{clip-path:inset(50%);width:1px;height:1px;overflow:hidden}.skip:focus{clip-path:none;width:auto;height:auto;overflow:visible}
+
+/* Coastal Observatory: clear surfaces, a grounded navigation rail, readable data. */
+:root{background:#f3f6f5;--line:#d8e3e1;--soft:#edf4f2}
+.sidebar{background:#123b42;border-color:#123b42;color:#f5faf8}
+.brand-icon,.brand-period{color:#a6d9cc}.workspace-label{color:#a6c1c3}
+.nav-item{color:#c2d5d6}.nav-item.active{background:#24565c;color:#fff;box-shadow:inset 3px 0 #a6d9cc}
+.nav-item:hover{background:#204b52;color:#fff}.nav-count{color:#fff;background:#32666c}
+.sidebar-bottom{border-top:1px solid #355960;padding-top:24px}
+.sidebar-bottom p,.sidebar-bottom a{color:#b6ccce}.device-mark{color:#d7ebe6}
+.topbar{background:#fafcfb;height:78px}.breadcrumb{font-size:13px}
+main{padding-top:36px}.panel{box-shadow:0 3px 16px #18363e05;border-color:var(--line)}
+.welcome{grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:36px;padding-bottom:36px}
+.welcome h1{font-size:clamp(38px,3.7vw,60px);font-weight:600;letter-spacing:-2.3px}
+.context-line{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600}
+.welcome-copy>p{max-width:43ch}.welcome-copy>p.small-text{font-size:12px}
+.welcome-figure{min-width:0}.compact-figure{margin:0;max-width:none;background:#eaf2ef;border-color:#cbded7;box-shadow:0 14px 35px #123b4209}
+.compact-figure .figure-top{align-items:flex-start;padding:18px 20px;flex-direction:column;gap:6px;border-color:#d2e2dc}
+.compact-figure .figure-top>span{font-family:inherit;font-size:9px;letter-spacing:1.4px;color:#47695f}
+.compact-figure .figure-top strong{font-size:16px;color:#234b45;font-weight:600}
+.compact-figure>svg{padding:0 10px;max-height:245px}
+.compact-figure .figure-bottom{padding:12px 18px;gap:8px;border-color:#d2e2dc;font-size:10px}
+.compact-figure figcaption{padding:0 18px 16px;font-size:11px;line-height:1.65}
+.archive-status{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
+.example-bottom{min-height:54px}.example-panel .inline-label{font-size:10px;letter-spacing:1.25px}
+.steps{border-top:1px solid var(--line);padding-top:28px}.steps>div>span{color:#52867d}
+.queue-panel,.receipt-card{box-shadow:0 6px 24px #18363e05}.receipt-card{border-top:4px solid var(--teal)}
+.button.primary{box-shadow:0 3px 8px #075e6718}.button.secondary{box-shadow:0 1px 2px #18363e04}
+.method-intro{background:#edf4f2}.method-sources a:hover{background:#edf4f2}
+@media(min-width:761px) and (max-width:1100px){.welcome{gap:24px;grid-template-columns:minmax(0,1fr) minmax(270px,.85fr)}.welcome h1{font-size:40px}.hero-actions{flex-wrap:wrap}.welcome-copy>p{font-size:14px}.compact-figure .figure-bottom{flex-wrap:wrap}}
+@media(max-width:760px){.sidebar{background:#123b42}.nav-item.active{box-shadow:inset 0 -3px #a6d9cc}.topbar{height:64px}.welcome{grid-template-columns:minmax(0,1fr) 260px;gap:24px}.welcome h1{font-size:39px}.compact-figure .figure-top strong{font-size:14px}.nav-item{font-size:12px;min-height:48px}.app-footer{font-size:11px}}
+@media(max-width:590px){
+ .sidebar{padding:16px 14px 0}.sidebar nav{display:grid;grid-template-columns:1fr 1fr;gap:4px}.nav-item{justify-content:flex-start;padding:12px;font-size:12px;border-radius:8px;gap:8px}.nav-item.active{box-shadow:inset 3px 0 #a6d9cc}.nav-item svg{width:18px}
+ .topbar{padding:0 18px}.breadcrumb{font-size:12px;gap:6px}.topbar .button{font-size:11px;min-height:44px;padding:10px}
+ main{padding:28px 18px 40px}.welcome{display:block}.welcome h1{font-size:42px;letter-spacing:-1.8px}.context-line{font-size:10px;letter-spacing:.8px}.welcome-copy>p.small-text{font-size:12px;line-height:1.7}
+ .welcome-figure{margin-top:26px}.compact-figure .figure-top{flex-direction:row;align-items:center;gap:16px;padding:15px 18px}.compact-figure .figure-top>span{font-size:9px;max-width:10ch}.compact-figure .figure-top strong{font-size:13px;max-width:18ch}.compact-figure>svg{min-height:0;max-height:210px}.compact-figure .figure-bottom{font-size:11px}.compact-figure .figure-bottom .button{font-size:11px;min-height:44px}
+ .example-panel .panel-heading{flex-wrap:wrap;gap:12px}.example-panel .panel-heading .button{margin:0;min-height:44px;font-size:12px}.example-panel .panel-heading p{font-size:12px;max-width:none}.example-panel .inline-label{font-size:10px}
+ .example-bottom{gap:9px;padding:15px 18px;font-size:12px}.archive-status{font-size:11px}.chart-foot{font-size:10px}.steps h3{font-size:16px}.steps p{font-size:13px}.app-footer .text-button{font-size:11px;min-height:44px}
+ .review-strip,.saved-label,.source-details p,.source-details summary,.source-details a,.storage-note,.saved-item p{font-size:12px}.review-name input{font-size:14px}.series-panel .panel-heading p,.queue-panel .panel-heading p{font-size:12px}.series-panel .panel-heading .button{font-size:12px;min-height:44px}
+ .filter-label select,.search-field input{font-size:12px;min-height:44px}.reading-row strong,.reading-value{font-size:12px}.reading-row small,.flag-status,.no-flag{font-size:10px}.list-footer .icon-button{width:44px;height:44px}.list-footer>.text-button{font-size:11px}.list-footer>div{font-size:11px}
+ .inspector-time,.flag-reasons p,.source-details p,.receipt-decisions p,.receipt-bottom p{font-size:13px}.inspector-top,.model-readout{font-size:11px}.decision-form textarea,.decision-form .field,.decision-options label{font-size:13px}.review-next p{font-size:13px}
+ .modal .field,.modal p,.modal .segmented button{font-size:13px}.modal .field input,.modal .field select,.modal .field textarea{font-size:16px}.settings-grid{grid-template-columns:1fr}.modal .button{font-size:12px}.notice{font-size:13px}
+ .saved-item .item-name{font-size:14px}.saved-item>.icon-button{width:44px;height:44px}.verify-input p,.plain-note p{font-size:13px}.receipt-card>p,.receipt-meta>div,.receipt-meta dd{font-size:12px}.receipt-meta small{font-size:10px}.receipt-tallies span{font-size:11px}.receipt-check{font-size:11px}.digest-block label{font-size:11px}
+ .method-intro p,.method-columns p,.method-limits p{font-size:14px;line-height:1.8}.method-stages p,.method-sources a{font-size:13px}.method-sources a{min-height:48px}.press-figure figcaption{font-size:12px}
+}
