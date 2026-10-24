@@ -37,18 +37,18 @@ export async function inspectProof(digest:unknown,proofValue:unknown,upgrade:unk
  validDigest(digest);if(typeof upgrade!=='boolean')throw new RequestError('Upgrade must be true or false.');
  const proof=decodeProof(proofValue);let root:StampNode;try{root=checkDigest(digest,proof);}catch(e){throw new RequestError(e instanceof Error?e.message:'Invalid timestamp proof.');}
  const pending:{node:StampNode;uri:string}[]=[];visit(root,(node,e)=>{if(e.kind==='pending'&&pending.length<4&&!pending.some(p=>p.uri===e.uri&&p.node.msg.equals(node.msg)))pending.push({node,uri:e.uri});});
- let updated=0;
+ let updated=0;const warnings:string[]=[];
  if(upgrade){const fetched=await Promise.allSettled(pending.map(async p=>{
   const u=new URL(p.uri);if(!ALLOWED.has(u.hostname)||u.port||u.pathname!=='/')throw new Error('This calendar is outside Tideprint’s fixed allowlist. Export the .ots file for another verifier.');
   return {parent:p.node,child:parseTimestamp(await fetchBounded(u.origin+'/timestamp/'+p.node.msg.toString('hex'),{headers:ACCEPT},65536),p.node.msg)};
- }));for(const x of fetched)if(x.status==='fulfilled'){const {parent,child}=x.value;updated+=mergeNodes(parent,child);}}
+ }));for(const x of fetched){if(x.status==='fulfilled'){const {parent,child}=x.value;updated+=mergeNodes(parent,child);}else warnings.push(x.reason instanceof Error?x.reason.message:'Calendar check unavailable.');}}
  const attestations:{node:StampNode;height:number}[]=[];visit(root,(node,e)=>{if(e.kind==='bitcoin'&&attestations.length<4)attestations.push({node,height:e.height});});
  let confirmation:Awaited<ReturnType<typeof bitcoinHeader>>|undefined;let checkError='';
  for(const a of attestations){try{confirmation=await bitcoinHeader(a.height,a.node.msg);break;}catch(e){checkError=e instanceof Error?e.message:'Could not reach the Bitcoin explorer.';}}
  const encoded=encodeDetached(digest,root).toString('base64');
  if(confirmation)return {proof:encoded,status:'confirmed',confirmation,updated,message:'Hash path, Merkle root and header proof of work match. Chain height and selection rely on Blockstream; this is not a full-node consensus check.'};
  if(attestations.length)return {proof:encoded,status:'unverified',updated,message:checkError||'A Bitcoin attestation exists but could not be verified. Please try again later.'};
- return {proof:encoded,status:'pending',updated,message:upgrade?'No verified Bitcoin attestation is available yet. Calendars may need several hours. Your existing proof has been kept.':'This proof contains calendar promises. Check again later for a Bitcoin attestation.'};
+ return {proof:encoded,status:'pending',updated,warnings,message:warnings.length===pending.length&&warnings.length?'Calendar checks are unavailable. Your pending proof has been kept; please try again later.':upgrade?'No verified Bitcoin attestation is available yet. Calendars may need several hours. Your existing proof has been kept.':'This proof contains calendar promises. Check again later for a Bitcoin attestation.'};
 }
 function entryKey(e:Entry):string {return e.kind==='bitcoin'?'b'+e.height:e.kind==='pending'?'p'+e.uri:'o'+e.tag+':'+(e.arg?.toString('hex')??'');}
 export function mergeNodes(parent:StampNode,child:StampNode):number{if(!parent.msg.equals(child.msg))throw new Error('Cannot merge different timestamp commitments.');let count=0;for(const entry of child.entries){const existing=parent.entries.find(e=>entryKey(e)===entryKey(entry));if(!existing){parent.entries.push(entry);count++;}else if(existing.kind==='op'&&entry.kind==='op')count+=mergeNodes(existing.child,entry.child);}return count;}
