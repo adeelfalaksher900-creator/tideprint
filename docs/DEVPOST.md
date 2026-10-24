@@ -47,7 +47,7 @@ The deployed app can fetch actual NOAA data, review flagged readings with reason
 
 The archived reference uses 241 real NOAA observations. A separate test fixture lists its deliberately injected spike, flat stretch and missing value. It is retained for regression testing and is not presented as observed measurements.
 
-The current source passes 40 automated tests, including React interaction tests for import errors, review decisions, sealing, saved-data recovery and tamper detection. A regression test also protects negative water-level values in CSV exports. The updated source includes a coastal design refresh; deployment of that refresh is pending project-team authorization.
+The deployed source passes 49 automated tests, including React interaction tests for import errors, review decisions, sealing, complete draft recovery and tamper detection. Regression checks protect original UTF-8 file bytes and negative water-level values in CSV exports. Verification can compare the sender’s independently shared digest. A reproducible fault-injection evaluation detected all 21 expected cases across three real NOAA station-days; this is a mechanics check, not an independently labelled accuracy benchmark. The coastal design refresh and recovery hardening are deployed.
 
 ## What we learned
 

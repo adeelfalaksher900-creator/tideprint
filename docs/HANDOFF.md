@@ -40,3 +40,5 @@ Still pending: final mobile visual check and Devpost source attachment/story dep
 ## Judging-audit release
 
 Recovery hardening and a reproducible three-station fault-injection evaluation have been implemented. 49 tests, build and dependency audit pass; 21/21 expected injected cases were detected. Official judging remains subjective and no 95% score is claimed. The participant explicitly gated video/gallery production on that threshold; media is held while material evidence gaps remain. The detailed personal review report is delivered separately from the source package.
+
+Audit release verification completed: e2342333a563e704f0b838a6f1e5a51b94e3e076 is READY on the production domain. Live backup restore and trusted-sender digest checks passed. Devpost story now states 49 tests and the limitations of the three-station fault-injection evaluation. The source attachment remains unverified after browser transfer timeouts. No video or gallery was generated because the participant's 95% precondition is not met by the evidence.
