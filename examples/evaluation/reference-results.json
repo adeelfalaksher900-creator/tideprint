@@ -1,0 +1,48 @@
+{
+  "schema": "tideprint/reference-check/1",
+  "reference": {
+    "package": "ioos_qc",
+    "version": "2.2.1",
+    "source": "https://github.com/ioos/ioos_qc",
+    "documentation": "https://ioos.github.io/ioos_qc/api/ioos_qc.html"
+  },
+  "checks": [
+    "gross-range fail flags",
+    "missing-value flags",
+    "rate-of-change suspect flags with metres/hour converted to metres/second"
+  ],
+  "comparisons": 2226,
+  "mismatches": 0,
+  "results": [
+    {
+      "case": "NOAA 9414290 2024-10-01",
+      "rows": 241,
+      "comparisons": 723,
+      "mismatches": []
+    },
+    {
+      "case": "NOAA 8518750 2024-10-01",
+      "rows": 241,
+      "comparisons": 723,
+      "mismatches": []
+    },
+    {
+      "case": "NOAA 9447130 2024-10-01",
+      "rows": 241,
+      "comparisons": 723,
+      "mismatches": []
+    },
+    {
+      "case": "Synthetic range, missing and rate boundary cases",
+      "rows": 19,
+      "comparisons": 57,
+      "mismatches": []
+    }
+  ],
+  "limits": [
+    "An independently maintained implementation was used; this is not an independent human analyst study.",
+    "Only three check semantics are compared on ordered six-minute series and stated boundaries.",
+    "Spike, flat-line, timestamp checks and Isolation Forest are not validated by this comparison.",
+    "Agreement with a reference implementation does not establish data truth, QARTOD certification or field benefit."
+  ]
+}

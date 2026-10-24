@@ -73,14 +73,15 @@ This is a domain model, not a hosted database schema. A device-local workflow do
 | Checks | Missing/range/spike/rate/flat-line/time/gap rules; seeded Isolation Forest |
 | Model | 64 trees, sample up to 128, seed 73129; 4 stated features; minimum 16 numeric rows |
 | Seal | SHA-256 over a sorted-key canonical manifest, with original CSV-byte hash |
-| Persistence | Versioned local storage; maximum 30 saved items; JSON exports |
-| APIs | Node 24 Vercel functions; fixed hosts, strict inputs, timeouts and size limits |
+| Persistence | Versioned local storage; 30 saved items; validated workspace backup/restore; Web Locks and stale-tab protection |
+| APIs | Node 24 Vercel functions; fixed hosts, bounded inputs/timeouts; NOAA CDN caching; deployed regional IP rate limit |
 | Timestamp | Original bounded OTS v1 subset; SHA-256, append, prepend, reverse |
 | Bitcoin | Blockstream header fetch; path/Merkle match, double-SHA-256 and PoW target check |
 | Explanation | Interactive 54-part paper press, generated with the MIT Anatomy kit |
 
 ### Data flow and API contracts
 
+- `GET /api/health` → function status and release identifier; no claim about upstream uptime.
 - `GET /api/noaa?station=9414290&date=2024-10-01` → `{rawCSV, source}`. Three supported stations; one 24-hour window including its closing observation. Metres, UTC, MLLW. Source URL and retrieval time are retained.
 - `POST /api/stamp` with JSON `{digest}` → `{proof, status:"pending", calendars, message}`. A random nonce salts the hash before calendar submission.
 - `POST /api/proof` with `{digest, proof, upgrade:true}` → a standard proof plus `pending`, `unverified` or `confirmed` status. Bitcoin confirmation requires the path and header checks; failed explorer access never becomes success.
@@ -142,3 +143,11 @@ Built for the **IEEE ClimateChain Global Hackathon**, Climate Data & Environment
 `npm test` covers complete draft recovery, malformed saved records, BOM-preserving file import and trusted-sender digest comparison in addition to the QA, receipt and proof tests. `npm run evaluate` reproduces 21 explicitly injected fault cases across three archived NOAA station-days; see [the evaluation record](examples/evaluation/README.md). These checks do not establish sensor-error accuracy or field impact.
 
 To move an unfinished review between devices, export its draft backup and choose that JSON file under Import CSV, or paste the complete backup. Tideprint restores source details, settings and recorded decisions. To verify a sender's original seal, enter their independently shared SHA-256 digest before opening the receipt.
+
+## Review comparison and operational evidence
+
+Compare reviews revalidates two receipts for identical data, source declarations and check settings, then lists action disagreements. It exports a comparison and optional observed task-time note. Reviewer labels are self-declared; these tools do not establish independent participation or measured field benefit. See the [analyst protocol](docs/ANALYST-STUDY.md).
+
+Saved reviews can export and restore an entire workspace. Restore validates all records before adding anything, preserves existing work and imports drafts as separate copies. Multiple tabs use Web Locks where supported; a changed stored copy stops autosave and exposes a recovery export. Browsers without Web Locks have comparison/event protection but do not have the same atomic coordination guarantee.
+
+`npm run benchmark` records bounded local capacity checks. For optional cross-implementation checks, install `ioos_qc==2.2.1` in a separate Python environment and run `npm run reference-checks`. The recorded run had zero differences across 2,226 range/missing/rate comparisons; it is not a whole-system accuracy or QARTOD certification claim. See [capacity and deployment evidence](examples/operations/README.md).
