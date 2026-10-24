@@ -8,7 +8,8 @@
     "build": "node scripts/package-source.mjs && tsc --noEmit && vite build",
     "test": "node --import tsx --test tests/*.test.ts tests/*.test.tsx",
     "check": "tsc --noEmit",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview --host 0.0.0.0",
+    "evaluate": "node --import tsx scripts/evaluate.ts"
   },
   "dependencies": {
     "react": "19.3.1",

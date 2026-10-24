@@ -1,3 +1,4 @@
+import {parseCSV} from '../src/core/csv.ts';
 import { fetchBounded, RequestError } from './http.ts';
 export const STATIONS:Record<string,string>={'9414290':'San Francisco, CA','8518750':'The Battery, NY','9447130':'Seattle, WA'};
 export async function getNOAA(station:unknown,date:unknown){
@@ -10,5 +11,8 @@ export async function getNOAA(station:unknown,date:unknown){
  if(!Array.isArray(data.data)||!data.data.length||data.data.length>300)throw new Error('NOAA returned no usable readings for this day. Try an earlier date.');
  if(String(data.metadata?.id)!==station)throw new Error('NOAA returned a different station.');
  const rawCSV='timestamp,value\n'+data.data.map((d:{t:unknown;v:unknown})=>{if(typeof d.t!=='string'||!/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(d.t)||typeof d.v!=='string'||(d.v!==''&&!/^-?\d+(\.\d+)?$/.test(d.v)))throw new Error('NOAA returned an unexpected observation format.');return d.t.replace(' ','T')+':00Z,'+d.v;}).join('\n')+'\n';
+ const windowStart=Date.parse(date+'T00:00:00Z'),windowEnd=windowStart+86400000;
+ let readings;try{readings=parseCSV(rawCSV);}catch{throw new Error('NOAA returned an invalid observation date or value.');}
+ if(readings.some(r=>r.ms<windowStart||r.ms>windowEnd))throw new Error('NOAA returned observations outside the requested day.');
  return {rawCSV,source:{kind:'noaa',name:STATIONS[station],station,date,unit:'m',datum:'MLLW',url,retrievedAt:new Date().toISOString(),note:'NOAA CO-OPS six-minute water-level observations. MLLW is the local Mean Lower Low Water datum. NOAA quality status is separate from Tideprint review flags.'}};
 }

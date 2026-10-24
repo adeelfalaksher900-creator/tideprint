@@ -136,3 +136,9 @@ NOAA observations are attributed with their exact request URL and retrieval meta
 Application code: [MIT](LICENSE). Anatomy kit: [MIT notice](vendor/anatomy/LICENSE). Instrument Sans: [SIL Open Font License](public/fonts/OFL.txt). No protected reference assets are copied.
 
 Built for the **IEEE ClimateChain Global Hackathon**, Climate Data & Environmental Monitoring track. AI-assisted research, implementation and validation were used; technical claims are limited to the included code and recorded checks.
+
+## Independent recovery and fault checks
+
+`npm test` covers complete draft recovery, malformed saved records, BOM-preserving file import and trusted-sender digest comparison in addition to the QA, receipt and proof tests. `npm run evaluate` reproduces 21 explicitly injected fault cases across three archived NOAA station-days; see [the evaluation record](examples/evaluation/README.md). These checks do not establish sensor-error accuracy or field impact.
+
+To move an unfinished review between devices, export its draft backup and choose that JSON file under Import CSV, or paste the complete backup. Tideprint restores source details, settings and recorded decisions. To verify a sender's original seal, enter their independently shared SHA-256 digest before opening the receipt.
