@@ -9,6 +9,12 @@ export function canonical(value: unknown): string {
   throw new Error('The receipt contains an unsupported value.');
 }
 export async function sha256(text: string): Promise<string> { const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)); return [...new Uint8Array(hash)].map(x => x.toString(16).padStart(2, '0')).join(''); }
+export function validateProofEncoding(proof:unknown):asserts proof is string {
+  const invalid=()=>new Error('The timestamp proof must be canonical base64 and no larger than 64 KiB.');
+  if(typeof proof!=='string'||!proof.length||proof.length>87384||proof.length%4!==0||!/^[A-Za-z0-9+/]+={0,2}$/.test(proof))throw invalid();
+  let decoded:string;try{decoded=atob(proof);}catch{throw invalid();}
+  if(decoded.length>65536||btoa(decoded)!==proof)throw invalid();
+}
 function validString(v: unknown, name: string, max: number, allowEmpty = false): asserts v is string { if (typeof v !== 'string' || v.length > max || (!allowEmpty && !v.trim())) throw new Error(`${name} is missing or too long.`); }
 export function validateSource(s: Source) {
   if (!s || !['csv','noaa','practice'].includes(s.kind) || s.unit !== 'm') throw new Error('The source must describe water levels in metres.');
@@ -59,7 +65,7 @@ export async function verifyBundle(input: string | Bundle): Promise<Bundle> {
   const audit = analyze(parseCSV(b.rawCSV), m.config);
   if (canonical(audit) !== canonical(m.audit)) throw new Error('The data checks cannot be reproduced with this algorithm version.');
   if (canonical(validateDecisions(m.decisions, audit)) !== canonical(m.decisions)) throw new Error('Decision order is invalid.');
-  if (b.proof !== undefined && (typeof b.proof !== 'string' || b.proof.length > 90000 || !/^[A-Za-z0-9+/]+={0,2}$/.test(b.proof))) throw new Error('The timestamp proof is invalid.');
+  if (b.proof !== undefined) validateProofEncoding(b.proof);
   return b;
 }
 export function reviewedCSV(bundle: Bundle): string {
