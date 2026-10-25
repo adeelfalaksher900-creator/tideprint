@@ -9,3 +9,9 @@ The live Vercel firewall is configured separately from source: one active rule, 
 `GET /api/health` checks function execution only and exposes a public release identifier. It does not probe NOAA, timestamp calendars or Bitcoin data providers. Successful NOAA responses have a 5-minute CDN freshness policy with a 10-minute stale-revalidation window. Errors and private proof responses remain `no-store`.
 
 Production probe observations are recorded separately after deployment. A short request burst cannot establish uptime or organizational scale. Do not apply the probe to third-party NOAA/calendar services.
+
+## Observed production probe
+
+The recorded probe on 24 October 2026 UTC (25 October Pakistan time) received 30 HTTP 200 and 5 HTTP 429 responses across 35 health requests with at most four in flight. The static page returned 200 during the test; the first recovery check returned 200. Invalid station, wrong method and missing JSON requests returned 400, 405 and 400 respectively. Two sequential NOAA queries returned 241 observations; cache status changed from MISS to HIT.
+
+The probing client observed successful-request p95 **7,452 ms**, including its network path and connection setup. This is not function CPU time or a low-latency service guarantee; no cause is established by this probe. Keep that observed latency separate from local Node computation. Regional counters and unrelated earlier requests mean the observed counts do not establish a globally exact quota.

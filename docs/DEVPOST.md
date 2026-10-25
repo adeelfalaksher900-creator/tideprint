@@ -53,6 +53,8 @@ A reproducible fault-injection evaluation detected all 21 expected cases across 
 
 A bounded Node-host capacity run measured analysis p95 49.51 ms and receipt verification p95 59.32 ms for a synthetic 3,000-row file, with 20 measured samples after warmup. Five concurrent local workers produced matching audits, and a 30-draft maximum-row workspace restored completely. This is computational evidence on the recorded host, not browser-device guarantees, organization-scale adoption or measured climate benefit.
 
+A bounded live health-endpoint probe returned 30 successful responses and five rate-limit responses from 35 requests, while the static website stayed available; the API recovered on the next check. Two sequential NOAA lookups returned 241 observations and the second was a CDN hit. These are operational spot checks, not an uptime or organization-scale study.
+
 Compare reviews verifies two separately prepared receipts for matching data, source and settings, then exports agreement and disagreements. An optional observed-task measurement note records real timings, including slower or failed outcomes. A protocol is included for independent analysts; no completed human study is claimed. Complete workspace backups validate before restoring, while stale-tab protection stops autosave and exposes recovery exports. Public APIs now have a deployed regional IP rate-limit rule and successful NOAA responses use a short CDN cache.
 
 ## What we learned

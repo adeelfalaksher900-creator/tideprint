@@ -1,0 +1,353 @@
+{
+  "schema": "tideprint/production-probe/1",
+  "recordedAt": "2026-10-24T20:03:56.674343+00:00",
+  "target": "https://tideprint.vercel.app",
+  "healthBefore": {
+    "status": 200,
+    "milliseconds": 7552.91,
+    "cache": "MISS",
+    "cacheControl": "no-store",
+    "vercelRoute": "cle1::iad1::zrgsm-1792872105885-7b2b8a33a27e",
+    "payload": {
+      "service": "Tideprint",
+      "status": "ok",
+      "schema": "tideprint/health/1",
+      "release": "2e28ddb17786",
+      "scope": "Runtime response only. NOAA, timestamp calendars and Bitcoin verification are checked when requested."
+    }
+  },
+  "boundedBurst": {
+    "requests": 35,
+    "maxConcurrency": 4,
+    "statuses": {
+      "200": 30,
+      "429": 5
+    },
+    "successfulP95Milliseconds": 7452.0,
+    "observations": [
+      {
+        "status": 200,
+        "milliseconds": 4489.92,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::4b88g-1792872110415-53b5d69e34bb"
+      },
+      {
+        "status": 200,
+        "milliseconds": 4427.54,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::lgss8-1792872110350-096c4b734635"
+      },
+      {
+        "status": 200,
+        "milliseconds": 4440.89,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::zppfp-1792872110351-d01221b94195"
+      },
+      {
+        "status": 200,
+        "milliseconds": 4381.09,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::tzhpd-1792872110350-7aac6e7e5d64"
+      },
+      {
+        "status": 200,
+        "milliseconds": 4219.84,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::2gm9l-1792872114565-8854090b94c7"
+      },
+      {
+        "status": 200,
+        "milliseconds": 4163.4,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::tzhpd-1792872114564-accb483b16b0"
+      },
+      {
+        "status": 200,
+        "milliseconds": 4192.31,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::l449z-1792872114565-992771d7c72c"
+      },
+      {
+        "status": 200,
+        "milliseconds": 4321.0,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::2gm9l-1792872114580-a03354e958ba"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7295.23,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::2gm9l-1792872121868-938662871f4b"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7313.7,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::j6dzt-1792872121868-608b253e3f99"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7267.34,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::4b88g-1792872121868-61b7c764f882"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7084.61,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::2fcdj-1792872121863-8cf7795ad59b"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7433.24,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::289jg-1792872129282-48f95d2f2ddc"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7442.12,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::wgrzx-1792872129282-e118e0368c16"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7419.71,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::2lqmn-1792872129282-897621fcde09"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7439.37,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::289jg-1792872129334-c49b69fda99a"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7289.24,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::s2jnn-1792872136572-b2472bc2e508"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7276.02,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::289jg-1792872136572-ea8939862a7b"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7257.75,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::mscwm-1792872136567-e19a4882aec7"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7242.03,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::lqwgm-1792872136572-e403b451f1fb"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7323.91,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::zld5t-1792872143889-5a531e3a8a24"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7336.75,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::mj9rv-1792872143892-15fa7c7563f1"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7337.15,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::hmmfj-1792872143889-8e30fa993c2e"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7306.83,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::2gm9l-1792872143889-3d5aa07029f7"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7452.0,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::47fvw-1792872151336-1a2d28cba7c0"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7438.95,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::p24ck-1792872151336-f0e742d6c32e"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7434.84,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::kb7jl-1792872151336-8736e29dd222"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7475.81,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::47fvw-1792872151392-db818068c244"
+      },
+      {
+        "status": 429,
+        "milliseconds": 7310.34,
+        "cache": null,
+        "cacheControl": "private, no-store, max-age=0",
+        "vercelRoute": "cle1::wknkl-1792872158666-9f39911a3671"
+      },
+      {
+        "status": 429,
+        "milliseconds": 7312.63,
+        "cache": null,
+        "cacheControl": "private, no-store, max-age=0",
+        "vercelRoute": "cle1::8z5gq-1792872158666-4b62935675ee"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7330.65,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::hb9z4-1792872158666-4cd965477b26"
+      },
+      {
+        "status": 429,
+        "milliseconds": 7259.52,
+        "cache": null,
+        "cacheControl": "private, no-store, max-age=0",
+        "vercelRoute": "cle1::wd4sg-1792872158666-b5edd809b888"
+      },
+      {
+        "status": 429,
+        "milliseconds": 7252.97,
+        "cache": null,
+        "cacheControl": "private, no-store, max-age=0",
+        "vercelRoute": "cle1::vwq44-1792872165920-5fd9f6d4e17d"
+      },
+      {
+        "status": 429,
+        "milliseconds": 7247.46,
+        "cache": null,
+        "cacheControl": "private, no-store, max-age=0",
+        "vercelRoute": "cle1::btgr4-1792872165922-8d7ea0d2ba60"
+      },
+      {
+        "status": 200,
+        "milliseconds": 7379.39,
+        "cache": "MISS",
+        "cacheControl": "no-store",
+        "vercelRoute": "cle1::iad1::pdtss-1792872165922-176cc21d735f"
+      }
+    ]
+  },
+  "staticPageDuringLimit": {
+    "status": 200,
+    "milliseconds": 7340.01,
+    "cache": "MISS",
+    "cacheControl": "public, max-age=0, must-revalidate",
+    "vercelRoute": "cle1::jr6hc-1792872173372-b95f628639ed"
+  },
+  "recovery": [
+    {
+      "status": 200,
+      "milliseconds": 7501.73,
+      "cache": "MISS",
+      "cacheControl": "no-store",
+      "vercelRoute": "cle1::iad1::zppfp-1792872200852-6232ee9fe5a7",
+      "payload": {
+        "service": "Tideprint",
+        "status": "ok",
+        "schema": "tideprint/health/1",
+        "release": "2e28ddb17786",
+        "scope": "Runtime response only. NOAA, timestamp calendars and Bitcoin verification are checked when requested."
+      }
+    }
+  ],
+  "validationErrors": {
+    "invalidStation": {
+      "status": 400,
+      "milliseconds": 7397.2,
+      "cache": "MISS",
+      "cacheControl": "no-store",
+      "vercelRoute": "cle1::iad1::p24ck-1792872208250-353b961d35fc",
+      "payload": {
+        "error": "Choose a supported NOAA station."
+      }
+    },
+    "wrongMethod": {
+      "status": 405,
+      "milliseconds": 5719.84,
+      "cache": "MISS",
+      "cacheControl": "no-store",
+      "vercelRoute": "cle1::iad1::r9nv9-1792872213968-0f1b3dd7582f",
+      "payload": {
+        "error": "Use POST for this request."
+      }
+    },
+    "missingJson": {
+      "status": 400,
+      "milliseconds": 7561.71,
+      "cache": "MISS",
+      "cacheControl": "no-store",
+      "vercelRoute": "cle1::iad1::tt4hs-1792872221552-84d1bacce224",
+      "payload": {
+        "error": "Send a JSON request."
+      }
+    }
+  },
+  "noaaCache": [
+    {
+      "status": 200,
+      "milliseconds": 7654.64,
+      "cache": "MISS",
+      "cacheControl": "public, max-age=0",
+      "vercelRoute": "cle1::iad1::dc9s5-1792872228881-d6fc8342f42a",
+      "rows": 241
+    },
+    {
+      "status": 200,
+      "milliseconds": 7410.32,
+      "cache": "HIT",
+      "cacheControl": "public, max-age=0",
+      "vercelRoute": "cle1::iad1::hb9z4-1792872236646-78aff13581a5",
+      "rows": 241
+    }
+  ],
+  "limits": [
+    "Single-client bounded request probe on the project itself; not a load, uptime or organizational-scale study.",
+    "Regional IP counters may have traffic from earlier requests; no global quota or exact request-count threshold is inferred.",
+    "Only two public NOAA lookups were sent, outside the burst."
+  ]
+}
