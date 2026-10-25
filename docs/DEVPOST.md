@@ -47,7 +47,7 @@ The deployed app can fetch actual NOAA data, review flagged readings with reason
 
 The archived reference uses 241 real NOAA observations. A separate test fixture lists its deliberately injected spike, flat stretch and missing value. It is retained for regression testing and is not presented as observed measurements.
 
-The source passes 65 automated tests, including React interaction tests for import errors, review decisions, sealing, complete draft recovery, multi-tab storage conflicts, workspace restore, comparison disagreements and tamper detection. Regression checks protect original UTF-8 file bytes and negative water-level values in CSV exports. Verification can compare the sender’s independently shared digest.
+The source passes 73 automated tests, including React interaction tests for import errors, review decisions, sealing, complete draft recovery, multi-tab storage conflicts, workspace restore, comparison disagreements, delayed-response state races and tamper detection. Regression checks protect original UTF-8 file bytes and negative water-level values in CSV exports. Verification can compare the sender’s independently shared digest.
 
 A reproducible fault-injection evaluation detected all 21 expected cases across three real NOAA station-days. Separate cross-implementation checks against IOOS ioos_qc 2.2.1 found zero differences across 2,226 range, missing-value and rate comparisons. These are mechanics and reference-implementation checks, not independently labelled sensor-error accuracy or an independent human study.
 

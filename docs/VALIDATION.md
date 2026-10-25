@@ -61,3 +61,11 @@ Real Chrome checks exercised verified receipt comparison with one deliberately c
 A 1280px viewport request did not take effect on the existing tab. Only the actual measured widths above are claimed. File-upload paths in the execution workspace remain unavailable to the connected browser. The browser security policy blocked inspection of its internal download-management URL; no workaround was attempted. Source attachment in Devpost therefore remains unconfirmed.
 
 The generated source ZIP passed CRC, duplicate/traversal/dependency exclusion and exact-byte source checks (92 files, 966,288 bytes at this check). A fresh extraction installed with npm ci --ignore-scripts, passed all 65 tests and built successfully. Documentation-only evidence updates after this check are included in the next generated package.
+
+## Independent AI review and asynchronous state fixes
+
+A second AI model reproduced four defects missed by the earlier suite: verification success could survive changed input, verification reused the active workspace receipt state, a delayed timestamp could replace the newly selected receipt, and malformed proof attachments could fail export. The patched source separates verification state, invalidates stale runs, binds timestamp updates/status to matching digest and proof bytes, and validates canonical base64 within 64 KiB decoded. Task completion is owned so an older operation cannot clear newer progress. Related late saved-receipt selection and archive-loading cases are guarded too.
+
+Eight regressions were added. All 73 tests, TypeScript/Vite build and dependency audit pass. The second AI reviewer independently reran the original reproductions and confirmed all four defects resolved, with no further actionable issue in the patch. This is independent AI engineering review, not a human analyst study. See `REVIEW.md` for findings and exact scope. Browser verification of the released patch is recorded in the separate judging report.
+
+The official overview checked on 25 October now lists a later deadline: 26 October 2026 at 00:00 UTC+03, equivalent to 26 October at 02:00 Pakistan time. Earlier deadline entries above are historical and superseded by the current overview.
